@@ -1,47 +1,225 @@
-/* Style global */
-body {
-    font-family: 'Roboto', sans-serif;
+/* Variables CSS pour les couleurs */
+:root {
+    --primary-text-color: #333;
+    --secondary-text-color: #666;
+    --header-bg-start: #2C3E50; /* Dark Blue */
+    --header-bg-end: #4CAF50; /* Green */
+    --accent-color: #4CAF50; /* Green */
+    --light-accent-color: #B0BEC5; /* Light Gray Blue */
+    --background-light: #f4f4f4;
+    --background-dark: #e0e0e0;
+    --card-background-light: #ffffff;
+    --border-color-light: #e0e0e0;
+    --shadow-light: rgba(0,0,0,0.1);
+    --shadow-medium: rgba(0,0,0,0.2);
+    --shadow-hover: rgba(0,0,0,0.3);
+
+    /* New: Scrollbar colors */
+    --scrollbar-thumb-color: var(--accent-color);
+    --scrollbar-track-color: var(--background-dark);
+
+    /* New: Selection colors */
+    --selection-bg-color: var(--accent-color);
+    --selection-text-color: white;
+
+    /* Background Animation Colors - Light Theme */
+    --bg-anim-color1: #E0F2F7; /* Light Blue */
+    --bg-anim-color2: #F1F8E9; /* Light Green */
+    --bg-anim-color3: #FFFDE7; /* Light Yellow */
+    --bg-anim-color4: #FBE9E7; /* Light Peach */
+}
+
+/* Dark Theme Variables */
+body.dark-theme {
+    --primary-text-color: #E0E0E0; /* Lighter text for dark mode */
+    --secondary-text-color: #A0A0A0; /* Lighter secondary text for dark mode */
+    --header-bg-start: #1a1a1a; /* Darker background for header in dark mode */
+    --header-bg-end: #2a2a2a; /* Slightly lighter dark background */
+    --accent-color: #76ff03; /* Brighter green/lime for dark mode */
+    --light-accent-color: #aaa;
+    --background-light: #121212; /* Very dark background */
+    --background-dark: #0a0a0a;
+    --card-background-light: #1e1e1e; /* Darker card background */
+    --border-color-light: #333;
+    --shadow-light: rgba(255,255,255,0.05);
+    --shadow-medium: rgba(255,255,255,0.1);
+    --shadow-hover: rgba(255,255,255,0.2);
+
+    /* New: Scrollbar colors for dark mode */
+    --scrollbar-thumb-color: var(--accent-color);
+    --scrollbar-track-color: var(--background-dark);
+
+    /* New: Selection colors for dark mode */
+    --selection-bg-color: var(--accent-color);
+    --selection-text-color: black; /* Text should be black for high contrast */
+
+    /* Background Animation Colors - Dark Theme */
+    --bg-anim-color1: #0A0A0A; /* Very Dark */
+    --bg-anim-color2: #1E1E1E; /* Dark Grey */
+    --bg-anim-color3: #2A2A2A; /* Medium Dark Grey */
+    --bg-anim-color4: #333333; /* Slightly lighter dark */
+
+    header h1 {
+        background: linear-gradient(to right, #ffffff, var(--light-accent-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+        animation: neon-glow-dark 2s infinite alternate;
+    }
+
+    @keyframes neon-glow-dark {
+        0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.5); }
+        100% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.8); }
+    }
+}
+
+/* Conserver l'animation originale pour le mode clair en dehors de dark-theme */
+@keyframes neon-glow {
+    0% {
+        text-shadow: 0 0 5px rgba(76, 175, 80, 0.4), 0 0 10px rgba(76, 175, 80, 0.6);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(76, 175, 80, 0.8), 0 0 25px rgba(76, 175, 80, 0.9);
+    }
+}
+
+/* Réinitialisation et base */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* New: Custom scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+    border-radius: 10px;
+    border: 3px solid var(--scrollbar-track-color); /* Creates a padded look */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    /* The darken function here is a placeholder for SASS/LESS. 
+       In pure CSS, you'd need to manually define a slightly darker color 
+       or use JS for dynamic color manipulation. */
+    background: #388E3C; /* Example: manually darkened accent color for hover in light mode */
+    /* For dark mode, you might need a specific color too or rely on JS darken function. */
+}
+
+body.dark-theme ::-webkit-scrollbar-thumb:hover {
+    background: #5CB800; /* Example: manually darkened accent color for hover in dark mode */
+}
+
+
+/* New: Custom text selection */
+::selection {
+    background: var(--selection-bg-color);
+    color: var(--selection-text-color);
+}
+::-moz-selection { /* Firefox */
+    background: var(--selection-bg-color);
+    color: var(--selection-text-color);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, var(--bg-anim-color1), var(--bg-anim-color2), var(--bg-anim-color3), var(--bg-anim-color4));
+    background-size: 400% 400%; /* Larger background for smooth animation */
+    animation: background-animation 30s ease infinite alternate; /* Continuous subtle movement */
+    color: var(--primary-text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+@keyframes background-animation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* New: Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-color);
+    color: white;
+    padding: 8px;
+    z-index: 9999;
+    transition: top 0.3s ease-out;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 
 /* En-tête */
 header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     padding: 20px;
-    background: linear-gradient(90deg, #4CAF50, #2C3E50); /* Dégradé vert */
+    background: linear-gradient(90deg, var(--header-bg-start), var(--header-bg-end));
     color: white;
+    box-shadow: 0 4px 10px var(--shadow-medium);
+    position: relative;
+    z-index: 10; /* Ensure header is above other content */
+    transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--light-accent-color);
+    margin-right: 20px;
+    object-fit: cover; /* Ensures image covers area */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.5s ease;
+}
+
+#profile-img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 20px var(--shadow-hover);
 }
 
 header h1 {
-    font-size: 2.5em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
     text-transform: uppercase;
-    background: linear-gradient(to right, #B0BEC5, #4CAF50); /* Gris clair à vert */
+    letter-spacing: 3px;
+    background: linear-gradient(to right, var(--light-accent-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: glow-visible 3s infinite;
+    animation: neon-glow 2s infinite alternate;
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.5); /* Default glow for light mode */
 }
 
-@keyframes glow-visible {
-    0% { background-position: 0%; filter: brightness(1); } /* Gris foncé */
-    50% { background-position: 100%; filter: brightness(1.4); } /* Un peu plus lumineux */
-    100% { background-position: 0%; filter: brightness(1); } /* Retour au gris clair */
-}
-
-/* Navigation (onglets) */
 header nav ul {
     list-style: none;
-    padding: 0;
-}
-
-header nav ul li {
-    display: inline-block;
-    margin: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
 header nav ul li a {
@@ -49,456 +227,693 @@ header nav ul li a {
     align-items: center;
     color: white;
     text-decoration: none;
-    font-size: 1.1em;
     padding: 10px 20px;
-    border-radius: 30px;
-    background: #2C3E50;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-header nav ul li a i {
-    margin-right: 8px; /* Espacement entre l'icône et le texte */
-    font-size: 1.3em; /* Taille des icônes */
+    border-radius: 50px;
+    background: rgba(0,0,0,0.2); /* Slightly transparent for header blend */
+    backdrop-filter: blur(5px); /* New: Frosted glass effect */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.3); /* Subtle border */
 }
 
 header nav ul li a:hover {
-    background-color: #388E3C;
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background: var(--accent-color);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 12px var(--shadow-medium);
+    /* New: Subtle glow on hover */
+    text-shadow: 0 0 8px rgba(255,255,255,0.8);
 }
 
-header nav ul li a:active {
-    transform: scale(1); /* Réduction de l'effet d'agrandissement en cliquant */
+header nav ul li a i {
+    margin-right: 8px;
+    font-size: 1.1em;
 }
 
-header img {
-    width: 100px;
-    height: 100px;
+/* Theme Toggle Button */
+#theme-toggle {
+    background: var(--card-background-light);
+    color: var(--primary-text-color);
+    border: 2px solid var(--border-color-light);
     border-radius: 50%;
+    width: 45px; /* Slightly larger */
+    height: 45px; /* Slightly larger */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.3em; /* Larger icon */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    z-index: 11; /* Ensure it's above header content */
 }
 
-/* Photo de profil */
-header img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    transition: transform 0.3s ease-in-out; /* Transition douce pour le zoom */
-} 	
-
-/* Effet d'élévation au survol */
-header img:hover {
-    transform: scale(1.1); /* Augmente la taille de l'image de 10% */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus intense au survol */
+#theme-toggle:hover {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    transform: scale(1.1) rotate(10deg); /* Add rotation for fun */
 }
 
-/* Effet de zoom quand l'image est agrandie */
-header img.zoomed {
-    transform: scale(2); /* Agrandissement de l'image */
-    z-index: 10; /* Place l'image au-dessus des autres éléments */
+/* Sections communes */
+section {
+    padding: 80px 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    text-align: center;
+    position: relative; /* For potential future absolute positioning */
+}
+
+section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    color: var(--header-bg-start); /* Use a header color for contrast */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    position: relative;
+    transition: color 0.5s ease;
+    padding-bottom: 15px; /* Space for underline */
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0px; /* Position underline directly below text */
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    /* New: Subtle animation on load/hover */
+    transform-origin: center;
+    transition: width 0.3s ease, background-color 0.5s ease;
+}
+
+section h2:hover::after {
+    width: 120px; /* Expand underline on hover */
+}
+
+/* Effet de fondu pour les sections */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px); /* Increased initial translation */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Présentation */
-#presentation {
-    padding: 50px 20px;
-    background-color: #f9fafb;
+#presentation p {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.3em;
+    line-height: 1.8;
+    background: var(--card-background-light);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    text-align: left;
+    transition: all 0.4s ease-in-out, background-color 0.5s ease, color 0.5s ease;
+    border: 1px solid var(--border-color-light); /* Subtle border */
+}
+
+#presentation p:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 12px 30px var(--shadow-medium);
+}
+
+/* Style pour le bouton CV */
+.cv-download-container {
+    margin-top: 40px;
     text-align: center;
 }
 
-#presentation h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-	position: relative;
-	top: -10px; /* Déplace légèrement le texte vers le haut */
-}
-
-#presentation p {
+.btn-download-cv {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
     font-size: 1.2em;
-    color: #555;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.8;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Effet de carte ombrée */
-    transition: transform 0.3s ease, box-shadow 0.5s ease; /* Ajout de transition pour l'effet d'élévation */
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    border: 2px solid transparent;
 }
 
-/* Ajout de l'effet d'ombre au survol pour le paragraphe de Présentation */
-#presentation p:hover {
-    transform: translateY(-5px); /* Animation d'élévation au survol */
-    animation: rgb-shadow 3s infinite; /* Animation d'ombre RGB au survol */
+.btn-download-cv:hover {
+    background-color: #388E3C;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    border-color: white;
 }
 
-/* Animation d'ombre RGB */
-@keyframes rgb-shadow {
-    0% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.7); }
-    25% { box-shadow: 0 0 10px rgba(0, 255, 0, 0.7); }
-    50% { box-shadow: 0 0 10px rgba(0, 0, 255, 0.7); }
-    75% { box-shadow: 0 0 10px rgba(255, 0, 255, 0.7); }
-    100% { box-shadow: 0 0 10px rgba(255, 255, 0, 0.7); }
+/* Ajustement pour le Dark Mode */
+body.dark-theme .btn-download-cv {
+    background-color: var(--accent-color);
+    color: black; /* Changed to black for contrast with bright green */
+    box-shadow: 0 6px 15px rgba(255,255,255,0.1);
+}
+
+body.dark-theme .btn-download-cv:hover {
+    background-color: #5CB800; /* Darken bright green */
+    border-color: var(--background-light);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.2);
+}
+
+.btn-download-cv i {
+    margin-right: 10px;
 }
 
 /* Compétences */
-#competences {
-    padding: 50px 20px;
-    background-color: #f0f0f0;
-    text-align: center;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    margin-top: 40px;
 }
 
-#competences h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-	position: relative;
-	top: -40px; /* Déplace légèrement le texte vers le haut */
-}
-
-#competences ul {
-    display: flex; /* Utilisation du flexbox */
-    flex-wrap: wrap; /* Permet d'aller à la ligne si nécessaire */
-    justify-content: center; /* Centre les blocs horizontalement */
-    gap: 15px; /* Ajoute de l'espacement entre les blocs */
-    list-style-type: none; /* Supprime les puces */
-    padding: 0;
-    margin: 0;
-}
-
-#competences ul li {
-    padding: 10px 20px; /* Ajoute de l'espace autour du texte */
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 1.2em;
-    color: #333;
-    text-align: center; /* Centre le texte */
-    box-sizing: border-box;
-    transition: transform 0.3s ease, box-shadow 0.5s ease;
-    white-space: nowrap; /* Empêche le contenu de passer à la ligne */
-}
-
-@media (max-width: 768px) {
-    #competences ul li {
-        width: 100%; /* Sur petits écrans, les blocs prennent toute la largeur */
-        max-width: none; /* En mode mobile, aucune limite de largeur */
-    }
-}
-
-#competences ul li:hover {
-    transform: translateY(-5px); /* Effet d'élévation */
-    animation: rgb-shadow 3s infinite;
-}
-
-/* Projet loxone */
-#projets_loxone {
-    padding: 50px 20px;
-    background-color: #fff;
-    text-align: center;
-}
-
-#projets_loxone h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-	position: relative;
-	top: -10px; /* Déplace légèrement le texte vers le haut */
-}
-/* Mise en page du projet Loxone */
-.projet-layout_loxone {
-    display: flex;
-    align-items: center; /* Centre verticalement les éléments */
-    justify-content: center; /* Centre horizontalement le contenu global */
-    gap: 20px; /* Espacement entre l'image et le texte */
-    padding: 10px; /* Ajoute un peu d'espace intérieur */
-}
-
-.projet-layouti_loxone figure {
-    flex: 0 0 30%; /* L'image prend environ 30% de la largeur */
-    margin: 0;
-	position: relative;
-	top: -30px; /* Déplace légèrement le texte vers le haut */
-}
-
-.projet-layout_loxone figure img {
-    max-width: 450px; /* Taille réduite de l'image */
-    height: auto; /* Conserve les proportions */
-    margin-right: 10px; /* Décale légèrement l'image vers la droite */
-    border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
-}
-
-.projet-layout_loxone .projet-description_loxone {
-    font-size: 1.1em;
-    color: #333;
-    background-color: #f9fafb;
+.skill-item {
+    background: var(--card-background-light);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Effet de carte pour la description */
-}
-
-.projet-description_loxone {
-    transition: transform 0.3s ease;
-}
-
-.projet-description_loxone:hover {
-    transform: scale(1.05); /* Même effet que l’image si elle est à 1.05 */
-}
-
-/* Projet python */
-#projets_python {
-    padding: 50px 20px;
-    background-color: #fff;
+    box-shadow: 0 6px 15px var(--shadow-light);
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--header-bg-start); /* Use primary brand color */
     text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out, background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+    border: 2px solid transparent; /* Increased border size for better visual */
 }
 
-#projets_python h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-	position: relative;
-	top: -10px; /* Déplace légèrement le texte vers le haut */
+.skill-item:hover {
+    transform: translateY(-8px) scale(1.05); /* More pronounced lift */
+    box-shadow: 0 12px 30px var(--shadow-medium); /* Stronger shadow */
+    border-color: var(--accent-color); /* Highlight with accent color */
+    color: var(--accent-color);
 }
 
-/* Mise en page du projet Python */
-.projet-layout_python {
-    display: flex;
-    align-items: center; /* Centre verticalement les éléments */
-    justify-content: center; /* Centre horizontalement le contenu global */
-    gap: 20px; /* Espacement entre l'image et le texte */
-    padding: 10px; /* Ajoute un peu d'espace intérieur */
+/* Skill Details Popup */
+.skill-details {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9); /* Initial state for animation */
+    background: var(--card-background-light);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    z-index: 1000;
+    max-width: 500px;
+    width: 90%;
+    text-align: left;
+    border: 2px solid var(--accent-color);
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.3s ease-out;
+    opacity: 0; /* Initial opacity for animation */
 }
 
-.projet-layouti_python figure {
-    flex: 0 0 30%; /* L'image prend environ 30% de la largeur */
-    margin: 0;
-	position: relative;
-	top: -30px; /* Déplace légèrement le texte vers le haut */
+.skill-details.active {
+    display: block;
+    animation: fadeInScale 0.4s ease-out forwards; /* Longer animation */
 }
 
-.projet-layout_python figure img {
-    max-width: 450px; /* Taille réduite de l'image */
-    height: auto; /* Conserve les proportions */
-    margin-right: 10px; /* Décale légèrement l'image vers la droite */
-    border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); } /* Start smaller */
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }
 
-.projet-layout_python .projet-description_python {
-    font-size: 1.1em;
-    color: #333;
-    background-color: #f9fafb;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Effet de carte pour la description */
-}
-
-.projet-description_python{
-    transition: transform 0.3s ease;
-}
-
-.projet-description_python:hover {
-    transform: scale(1.05); /* Même effet que l’image si elle est à 1.05 */
-}
-
-article {
-    margin-bottom: 40px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Effet de carte pour chaque projet */
-    transition: transform 0.3s ease, animation 0.5s; /* Ajout d'animation */
-}
-
-article:hover {
-    transform: translateY(-5px); /* Légère animation au survol */
-    animation: rgb-shadow 3s infinite; /* Animation d'ombre RGB au survol */
-}
-
-article h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #4CAF50; /* Couleur de titre personnalisée */
-}
-
-figure img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour les images des projets */
+.skill-details h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em; /* Slightly larger title */
+    color: var(--header-bg-start);
     margin-bottom: 15px;
-	transition: transform 0.3s ease-in-out; /* Transition douce pour le zoom */
-}
-
-figure img:hover {
-	transform: scale(1.05); /* Augmente la taille de l'image de 10% */
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus intense au survol */
-}
-
-figcaption {
-    font-style: italic;
-    color: #555;
-    margin-top: 5px;
-}
-
-article a {
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-article a:hover {
-    text-decoration: underline;
-}
-
-/* --- Section Veille Technologique --- */
-#veille {
-    padding: 40px 20px;
-    background-color: #f4f4f4;
     text-align: center;
+    transition: color 0.5s ease;
 }
 
-#veille h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
+.skill-details p {
+    font-size: 1.15em; /* Slightly larger text */
+    line-height: 1.7;
+    color: var(--primary-text-color);
+    margin-bottom: 25px; /* More space for button */
 }
 
-#veille p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #555;
-    max-width: 800px;
+.skill-details .close-popup {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 25px; /* Slightly larger button */
+    border-radius: 8px; /* Slightly less rounded */
+    cursor: pointer;
+    font-size: 1.1em;
+    display: block;
     margin: 0 auto;
-    text-align: justify;
-	border-radius: 10px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Effet de carte ombrée */
-	transition: transform 0.3s ease, box-shadow 0.5s ease; /* Ajout de transition pour l'effet d'élévation */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Ajout de l'effet d'ombre au survol pour le paragraphe de Présentation */
-#veille p:hover {
-    transform: translateY(-5px); /* Animation d'élévation au survol */
-    animation: rgb-shadow 3s infinite; /* Animation d'ombre RGB au survol */
+.skill-details .close-popup:hover {
+    background-color: #388E3C; /* Manually darken for light mode */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+body.dark-theme .skill-details .close-popup:hover {
+    background-color: #5CB800; /* Manually darken for dark mode */
+}
+
+/* Overlay */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75); /* Darker overlay */
+    z-index: 999;
+    animation: fadeIn 0.3s ease-out forwards;
+    backdrop-filter: blur(3px); /* New: Subtle blur effect */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#overlay.active {
+    display: block;
+}
+
+/* Projets */
+#projets article {
+    margin-bottom: 80px;
+}
+
+.project-card {
+    background: var(--card-background-light);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    transition: all 0.4s ease-in-out, background-color 0.5s ease, color 0.5s ease;
+    text-align: left;
+    border: 1px solid var(--border-color-light); /* Subtle border */
+}
+
+.project-card:hover {
+    transform: translateY(-12px) scale(1.008); /* More pronounced lift */
+    box-shadow: 0 18px 45px var(--shadow-medium); /* Stronger shadow */
+}
+
+.project-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2em;
+    color: var(--header-bg-start);
+    margin-bottom: 25px;
+    text-align: center;
+    transition: color 0.5s ease;
+}
+
+.projet-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+}
+
+.projet-layout figure {
+    flex: 1 1 450px;
+    margin: 0;
+    max-width: 100%;
+}
+
+.projet-layout img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.projet-layout img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.projet-layout figcaption {
+    font-size: 0.95em;
+    color: var(--secondary-text-color);
+    margin-top: 10px;
+    text-align: center;
+    transition: color 0.5s ease;
+}
+
+.projet-description {
+    flex: 2 1 500px;
+    max-width: 100%;
+}
+
+.projet-description p {
+    font-size: 1.15em;
+    line-height: 1.7;
+    color: var(--primary-text-color);
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    transition: none;
+    text-align: left;
+}
+
+.btn-project-details {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out; /* Ensured all properties transition */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-project-details:hover {
+    background-color: #388E3C; /* Manually darken for light mode */
+    transform: translateY(-3px) scale(1.02); /* Scale up slightly */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+body.dark-theme .btn-project-details:hover {
+    background-color: #5CB800; /* Manually darken for dark mode */
 }
 
 /* Contact */
-#contact {
-    padding: 50px 20px;
-    background-color: #f0f0f0;
-    text-align: center;
-}
-
-#contact h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-	position: relative;
-	top: -10px; /* Déplace légèrement le texte vers le haut */
-}
-
-/* Ajoute l'effet de grossissement au survol du formulaire dans la section Contact */
 #contact form {
+    max-width: 700px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 30px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Effet de carte pour le formulaire */
-    transition: box-shadow 0.5s ease, transform 0.3s ease; /* Transition pour l'agrandissement */
+    gap: 20px;
+    background: var(--card-background-light);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    transition: all 0.4s ease-in-out, background-color 0.5s ease, color 0.5s ease;
+    border: 1px solid var(--border-color-light); /* Subtle border */
 }
 
 #contact form:hover {
-    transform: scale(1.02); /* Grossissement de 5% au survol */
-    animation: rgb-shadow 3s infinite; /* Animation d'ombre RGB au survol */
+    transform: translateY(-8px) scale(1.005);
+    box-shadow: 0 15px 40px var(--shadow-medium);
 }
 
-input, textarea {
+#contact form label {
+    font-size: 1.2em;
+    color: var(--header-bg-start);
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 600;
+    transition: color 0.5s ease;
+}
+
+#contact form input,
+#contact form textarea {
+    width: 100%;
     padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px;
     font-size: 1.1em;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Ombre intérieure pour un effet 3D léger */
+    color: var(--primary-text-color);
+    background-color: var(--background-dark); /* Slightly darker background for inputs */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.5s ease, color 0.5s ease;
 }
 
-button {
-    padding: 15px;
-    background-color: #4CAF50;
+#contact form input:focus,
+#contact form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.3); /* Stronger glow */
+}
+
+#contact form button {
+    padding: 18px 30px;
+    background-color: var(--accent-color);
     color: white;
     border: none;
+    border-radius: 50px;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.3em;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    margin-top: 15px;
+}
+
+#contact form button:hover {
+    background: #388E3C; /* Manually darken for light mode */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+body.dark-theme #contact form button:hover {
+    background-color: #5CB800; /* Manually darken for dark mode */
+}
+
+#form-message {
+    margin-top: 20px;
+    padding: 10px;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-button:hover {
-    background-color: #388E3C;
-    transform: translateY(-2px); /* Légère levée au survol */
+#form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
 }
 
-button:active {
-    transform: translateY(0); /* Retirer la levée lorsqu'on clique */
+#form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Pied de page */
 footer {
-    padding: 20px;
-    background-color: #2C3E50;
+    background: var(--header-bg-start);
     color: white;
     text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    padding: 30px 20px;
+    flex-shrink: 0;
+    margin-top: auto;
+    border-top: 5px solid var(--accent-color);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
 }
 
-footer a {
-    color: #4FC3F7; 
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease; /* Transition pour l'effet de survol */
+footer p {
+    font-size: 1em;
+    margin-bottom: 10px;
 }
 
-footer a:hover {
-    color: #82E9DE; 
+.social-links {
+    margin-top: 15px;
 }
 
 .linkedin-link {
-    display: inline-flex; /* Pour aligner le texte et l'icône horizontalement */
-    align-items: center;
-    color: #4FC3F7;
+    color: #0A66C2; /* LinkedIn brand color */
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 50px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .linkedin-link:hover {
-    color: #82E9DE;
+    background-color: #0A66C2;
+    color: white;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
 .linkedin-link i {
-    margin-left: 5px; /* Espace léger entre le texte et l'icône */
-    font-size: 1.2em; /* Taille de l'icône */
+    margin-right: 8px;
+    font-size: 1.3em;
 }
 
+/* Helper function for darken (Note: This is a SASS/LESS function, not native CSS. 
+   For pure CSS, you would manually define a slightly darker color, or use JS.) */
+/* @function darken($color, $percentage) {
+    @return mix(black, $color, $percentage);
+} */
 
-/* Animation de défilement lorsque je clique sur un onglet */
-html {
-    scroll-behavior: smooth;
+/* Media Queries pour la responsivité */
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    #profile-img {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100px;
+        height: 100px;
+    }
+
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header nav ul li a {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+    }
+
+    #theme-toggle {
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+    }
+
+    section {
+        padding: 50px 15px;
+    }
+
+    section h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    #presentation p {
+        font-size: 1.1em;
+        padding: 20px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+    }
+
+    .skill-item {
+        font-size: 1.2em;
+        padding: 15px;
+    }
+
+    .projet-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .project-card h3 {
+        font-size: 1.8em;
+    }
+
+    .projet-layout img {
+        max-height: 300px;
+    }
+
+    .projet-description p {
+        font-size: 1em;
+    }
+
+    #contact form {
+        padding: 30px;
+    }
+
+    #contact form input,
+    #contact form textarea,
+    #contact form button {
+        font-size: 1em;
+        padding: 12px;
+    }
+
+    #contact form button {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    #profile-img {
+        width: 90px;
+        height: 90px;
+    }
+
+    header nav ul li a {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+
+    #presentation p {
+        font-size: 1em;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-item {
+        font-size: 1.1em;
+    }
+
+    .project-card h3 {
+        font-size: 1.6em;
+    }
+
+    .projet-layout img {
+        max-height: 250px;
+    }
+
+    .linkedin-link {
+        font-size: 1em;
+        padding: 8px 12px;
+    }
 }
