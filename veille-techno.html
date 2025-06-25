@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique - Kévan BROUARD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="background-elements-container"></div>
+    <header>
+        <div class="header-content">
+            <img src="Images/images.png" alt="Image de profil de Kévan Brouard" id="profile-img">
+            <h1>BROUARD Kévan</h1>
+        </div>
+        <nav aria-label="Navigation principale">
+            <ul>
+                <li><a href="portfolio.html#presentation"><i class="fas fa-user"></i> Présentation</a></li>
+                <li><a href="portfolio.html#competences"><i class="fas fa-cogs"></i> Mes compétences</a></li>
+                <li><a href="portfolio.html#projets"><i class="fas fa-laptop-code"></i> Mes Projets</a></li>
+                <li><a href="veille-techno.html" class="active"><i class="fas fa-microchip"></i> Veille technologique</a></li>
+				<li><a href="mon_stage.html"><i class="fas fa-briefcase"></i> Mon Stage</a></li>
+                <li><a href="portfolio.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Basculer le thème sombre/clair">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <main id="main-content">
+        <section id="veille-technologique" class="fade-in">
+            <h2 class="section-title"><i class="fas fa-eye"></i> Qu'est-ce qu'une veille technologique ?</h2>
+            <p class="intro-paragraph">
+                Une veille technologique consiste à surveiller les développements techniques ou scientifiques, les performances de produits, les résultats de recherche et les applications innovantes. Elle repose sur un processus de collecte, de traitement et de partage de l'information. Les résultats de cette veille permettent de prendre des décisions et d'orienter des choix technologiques pour bénéficier d'un avantage concurrentiel.
+            </p>
+
+            <h2 class="section-title"><i class="fas fa-list-ol"></i> Les étapes d'une veille technologique</h2>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-number">1</span>
+                    <h3>Déterminer les objectifs</h3>
+                    <p>La veille doit répondre à un <strong>besoin clairement identifié</strong>. Par exemple, trouver une solution pour améliorer la sécurité d'un système d'information face aux attaques de type ransomware.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">2</span>
+                    <h3>Collecter les informations</h3>
+                    <p>Les sources sont diverses (revues, ouvrages, vidéos, bases de données). Il est important de commencer par des <strong>sources générales</strong> puis d'affiner la recherche avec des sources plus précises. La qualité des résultats dépend de la pertinence et de la fiabilité des informations collectées. Les critères d'évaluation de l'information incluent la crédibilité de l'auteur, la fiabilité de la source, l'objectivité, l'exactitude (en croisant les sources) et l'actualité de l'information.</p>
+                    <h4>Outils utilisés pour la collecte :</h4>
+                    <div class="sub-section">
+                        <p><strong>Méthode "pull" :</strong> Le veilleur recherche activement l'information, permettant une mesure rapide de la pertinence. L'inconvénient est la nécessité de recherches régulières manuelles.</p>
+                        <p><strong>Méthode "push" :</strong> L'information est "poussée" vers le veilleur, souvent de manière automatisée (ex: flux RSS). L'avantage est d'être régulièrement informé des nouveautés, mais cela peut générer une grande masse d'informations à traiter.</p>
+                        <p>Pour ma veille, j'utilise les outils suivants :</p>
+                        <ul>
+                            <li><i class="fas fa-rss"></i> <strong>Agrégateurs de flux RSS :</strong> Permettent de mémoriser les recherches et d'être alerté en temps réel. Des exemples incluent Netvibes et Feedly.</li>
+                            <li><i class="fas fa-envelope"></i> <strong>Alertes par courriel :</strong> Des services comme Google Alerts envoient un e-mail ou une alerte lorsque de nouveaux résultats correspondent aux mots-clés choisis.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">3</span>
+                    <h3>Traiter les informations (Curation)</h3>
+                    <p>Un travail de curation est essentiel pour apporter une <strong>valeur ajoutée à l'information brute</strong>, par exemple en ajoutant un titre, un commentaire ou un point de vue. Cette étape nécessite une intervention humaine et ne peut pas être entièrement automatisée.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">4</span>
+                    <h3>Partager les résultats de la veille</h3>
+                    <p>C'est l'objectif final de la veille : le produit doit être adapté aux habitudes du public visé, en fonction des destinataires, des supports (articles, vidéos, des canaux (Web, messagerie) et des délais de diffusion.</p>
+                    <h4>Outils utilisés pour le partage et la diffusion :</h4>
+                    <div class="sub-section">
+                        <ul>
+                            <li><i class="fas fa-users"></i> <strong>Outils collaboratifs :</strong> Slack</li>
+                            <li><i class="fas fa-code-branch"></i> <strong>Outils de partage de code de développement :</strong> GitHub</li>
+                            <li><i class="fas fa-share-alt"></i> <strong>Réseaux sociaux :</strong> Facebook, LinkedIn, SlideShare, Twitter, Tweetdeck.</li>
+                            <li><i class="fas fa-globe"></i> <strong>Sites Web et wiki.</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title"><i class="fas fa-brain"></i> Mon sujet de veille : L'impact des intelligences artificielles sur l'automatisation dans le développement de logiciels</h2>
+            <p class="subject-description">
+                Comment les intelligences artificielles facilitent-elles l'automatisation de tâches dans le développement de logiciels ?
+            </p>
+
+            <div class="content-block">
+                <h3><i class="fas fa-robot"></i> L’intelligence artificielle dans le développement de logiciels</h3>
+
+                <div class="question-bubble">
+                    <h4>C’est quoi exactement ?</h4>
+                    <p>
+                        L’intelligence artificielle, ou IA, c’est quand des machines sont capables de faire des choses qu’on associe normalement à l’intelligence humaine, comme apprendre, raisonner ou prendre des décisions. Dans le domaine du développement de logiciels, l’IA aide surtout à automatiser certaines tâches : écrire du code, corriger des erreurs, faire des tests ou même donner des idées pour améliorer une application. Le but, ce n’est pas de remplacer les développeurs, mais de leur faire gagner du temps et de les aider à éviter les erreurs.
+                    </p>
+                </div>
+
+                <div class="question-bubble">
+                    <h4>Et aujourd’hui, ça en est où ?</h4>
+                    <p>
+                        Aujourd’hui, l’IA est déjà bien présente dans les outils utilisés par les développeurs. Par exemple, GitHub Copilot peut carrément écrire du code à partir de quelques mots ou commentaires. Il peut même proposer la suite d’une fonction ou corriger une erreur. D’autres outils comme Tabnine ou Amazon CodeWhisperer font un peu la même chose. Il y a aussi des IA qui testent automatiquement des programmes, repèrent des bugs, ou prédisent les erreurs avant même qu’elles ne se produisent. Résultat : le développement est plus rapide, plus efficace, et souvent plus sûr.
+                    </p>
+                </div>
+
+                <div class="question-bubble">
+                    <h4>Qui sont les grands noms derrière ça ?</h4>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <strong>Microsoft</strong> avec GitHub Copilot</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Amazon</strong> avec CodeWhisperer</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Google</strong>, qui intègre l’IA dans ses outils de développement</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>JetBrains</strong>, qui ajoute aussi des fonctions intelligentes dans ses logiciels</li>
+                    </ul>
+                    <p>
+                        Et il y a plein de start-ups qui bossent là-dessus, comme DeepCode ou Snyk, qui utilisent l’IA pour détecter les failles de sécurité dans le code.
+                    </p>
+                </div>
+
+                <div class="question-bubble">
+                    <h4>Et pour le grand public, ça change quoi ?</h4>
+                    <p>
+                        Même si on ne le voit pas directement, tout le monde en profite. Les applis sortent plus vite, avec moins de bugs, et avec des idées plus originales. Les petites boîtes ou les développeurs solo peuvent maintenant créer des logiciels plus facilement, sans avoir besoin d’une grosse équipe. Dans les écoles aussi, l’IA aide à apprendre à coder. Par exemple, avec des assistants comme ChatGPT, on peut poser des questions, corriger du code, ou mieux comprendre comment ça marche.
+                    </p>
+                </div>
+
+                <div class="question-bubble risk-bubble">
+                    <h4>Mais est-ce qu’il y a des risques ?</h4>
+                    <ul>
+                        <li><i class="fas fa-exclamation-triangle"></i> D’abord, une IA peut écrire du code qui a l’air bon mais qui contient des erreurs.</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> Ensuite, certains outils peuvent "copier" du code venant d’ailleurs, ce qui pose des problèmes de droits d’auteur.</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> Il y a aussi le risque de devenir trop dépendant de l’IA, surtout quand on débute et qu’on ne prend pas le temps d’apprendre à coder "à la main".</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> Enfin, certaines tâches risquent d’être automatisées au point de changer les métiers du développement.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block summary-block question-bubble">
+                <h3><i class="fas fa-lightbulb"></i> En résumé :</h3>
+                <p>
+                    L’intelligence artificielle apporte un vrai coup de pouce aux développeurs : elle fait gagner du temps, évite des erreurs et rend le code plus propre. Mais comme pour toute technologie, il faut apprendre à bien l’utiliser, et rester prudent. C’est un outil très puissant, qui va sûrement changer beaucoup de choses dans les prochaines années, comme l’a fait la 5G dans le domaine des télécoms.
+                </p>
+            </div>
+        </section>
+
+        <section id="ressources" class="fade-in">
+            <h2 class="section-title"><i class="fas fa-book-open"></i> Ressources et Lectures Approfondies</h2>
+
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3><i class="fas fa-link"></i> OpenAI Codex : un agent IA natif du cloud pour automatiser les tâches de développement logiciel</h3>
+                    <p>Présentation de Codex, un agent IA en cloud développé par OpenAI, capable de coder, tester et déployer à partir de commandes en langage naturel. Il incarne la tendance des "agentic AI" pour automatiser des portions de workflow en DevOps.</p>
+                    <a href="https://itsocial.fr/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                        Lire l'article <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3><i class="fas fa-link"></i> Découvrez les cas d’utilisation de l’IA dans le développement logiciel</h3>
+                    <p>Cet article montre comment l’IA automatise les tests logiciels, améliore la qualité du code et anticipe les bugs. Il détaille aussi des statistiques fortes : adoption massive en entreprise, réduction des temps de développement jusqu’à 40 %, et prédiction plus fiable des erreurs.</p>
+                    <a href="https://smartdev.com/fr/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                        Lire l'article <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3><i class="fas fa-link"></i> L’IA dans le développement logiciel (IBM France)</h3>
+                    <p>IBM explique l’usage de l’IA dans les pipelines CI/CD : surveillance automatique, mise à l’échelle dynamique, détection des vulnérabilités et suggestions pour architectures et interfaces. L’article présente un aperçu complet des apports de l’IA en DevOps.</p>
+                    <a href="https://www.ibm.com/fr-fr/think/topics/ai-in-software-development" target="_blank" rel="noopener noreferrer" class="resource-link">
+                        Lire l'article <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <a href="portfolio.html" class="back-to-projects-btn"><i class="fas fa-arrow-left"></i> Retour au Portfolio</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Kévan BROUARD. Tous droits réservés.</p>
+        <div class="social-links">
+            <a href="https://github.com/KeykoDB" target="_blank" rel="noopener noreferrer"
+                aria-label="Mon profil GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/kevan-brouard-a6157a371/" target="_blank" rel="noopener noreferrer"
+                aria-label="Mon profil LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script src="main.js" defer></script>
+</body>
+
+</html>

@@ -1,85 +1,170 @@
-/* Variables CSS pour les couleurs */
+/* Variables CSS pour les couleurs - Nature & Graphiste Theme */
 :root {
-    --primary-text-color: #333;
-    --secondary-text-color: #666;
-    --header-bg-start: #2C3E50; /* Dark Blue */
-    --header-bg-end: #4CAF50; /* Green */
-    --accent-color: #4CAF50; /* Green */
-    --light-accent-color: #B0BEC5; /* Light Gray Blue */
-    --background-light: #f4f4f4;
-    --background-dark: #e0e0e0;
-    --card-background-light: #ffffff;
-    --border-color-light: #e0e0e0;
-    --shadow-light: rgba(0,0,0,0.1);
-    --shadow-medium: rgba(0,0,0,0.2);
-    --shadow-hover: rgba(0,0,0,0.3);
+    /* Base Colors */
+    --primary-text-color: #3B5249;
+    /* Dark Forest Green */
+    --secondary-text-color: #556B2F;
+    /* Olive Green */
+    --accent-color: #8CBB73;
+    /* Muted vibrant green */
+    --light-accent-color: #A9D4B5;
+    /* Lighter green for highlights */
 
-    /* New: Scrollbar colors */
+    /* Backgrounds */
+    --background-light: #F0F5EE;
+    /* Very light subtle green-beige */
+    --background-dark: #E6EDE2;
+    /* Slightly darker light green-beige */
+    --card-background-light: #FFFFFF;
+    /* Clean white for cards */
+
+    /* Header & Footer */
+    --header-bg-start: #2A363B;
+    /* Darker Blue-Green */
+    --header-bg-end: #4CAF50;
+    /* A slightly richer green, kept from original for gradient blend */
+
+    /* Shadows & Borders */
+    --border-color-light: #D0DED0;
+    /* Soft green-grey border */
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    /* Lighter, diffused shadow */
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --shadow-hover: rgba(0, 0, 0, 0.25);
+
+    /* Scrollbar */
     --scrollbar-thumb-color: var(--accent-color);
     --scrollbar-track-color: var(--background-dark);
 
-    /* New: Selection colors */
+    /* Selection */
     --selection-bg-color: var(--accent-color);
     --selection-text-color: white;
 
-    /* Background Animation Colors - Light Theme */
-    --bg-anim-color1: #E0F2F7; /* Light Blue */
-    --bg-anim-color2: #F1F8E9; /* Light Green */
-    --bg-anim-color3: #FFFDE7; /* Light Yellow */
-    --bg-anim-color4: #FBE9E7; /* Light Peach */
+    /* Background Animation Colors (adjusted for nature theme) */
+    --bg-anim-color1: #EBF2E8;
+    /* Very light, almost white green */
+    --bg-anim-color2: #DAE4D7;
+    /* Light sage green */
+    --bg-anim-color3: #C2D1BF;
+    /* Muted green */
+    --bg-anim-color4: #A7B8A2;
+    /* Deeper muted green */
+
+    /* Card Background Color for Carrousel */
+    --card-bg-color: var(--card-background-light);
+
+    /* Couleurs des éléments de fond en mode clair (plus sombres) */
+    --bg-element-leaf-color: rgba(60, 100, 50, 0.3);
+    /* Vert foncé pour les feuilles */
+    --bg-element-water-color: rgba(80, 150, 180, 0.3);
+    /* Bleu muté pour l'eau */
+    --bg-element-flower-color: rgba(180, 100, 150, 0.3);
+    /* Rose/violet muté pour les fleurs */
+    --bg-element-sun-color: rgba(200, 180, 50, 0.3);
+    /* Jaune muté pour le soleil/lumière */
+    --bg-element-seedling-color: rgba(90, 150, 80, 0.3);
+    /* Vert tendre pour les jeunes pousses */
+    --bg-element-cloud-color: rgba(150, 180, 200, 0.2);
+    /* Bleu-gris clair pour les nuages */
+    --bg-element-mountain-color: rgba(120, 100, 90, 0.2);
+    /* Brun-gris pour les montagnes */
 }
 
 /* Dark Theme Variables */
 body.dark-theme {
-    --primary-text-color: #E0E0E0; /* Lighter text for dark mode */
-    --secondary-text-color: #A0A0A0; /* Lighter secondary text for dark mode */
-    --header-bg-start: #1a1a1a; /* Darker background for header in dark mode */
-    --header-bg-end: #2a2a2a; /* Slightly lighter dark background */
-    --accent-color: #76ff03; /* Brighter green/lime for dark mode */
-    --light-accent-color: #aaa;
-    --background-light: #121212; /* Very dark background */
-    --background-dark: #0a0a0a;
-    --card-background-light: #1e1e1e; /* Darker card background */
-    --border-color-light: #333;
-    --shadow-light: rgba(255,255,255,0.05);
-    --shadow-medium: rgba(255,255,255,0.1);
-    --shadow-hover: rgba(255,255,255,0.2);
+    /* Base Colors */
+    --primary-text-color: #E0E0E0;
+    /* Lighter text for dark mode */
+    --secondary-text-color: #A0A0A0;
+    /* Lighter secondary text for dark mode */
+    --accent-color: #A3E768;
+    /* Brighter, more vibrant lime green for dark mode */
+    --light-accent-color: #7BBF4C;
+    /* Slightly darker lime */
 
-    /* New: Scrollbar colors for dark mode */
+    /* Backgrounds */
+    --background-light: #1A1A1A;
+    /* Very dark charcoal */
+    --background-dark: #0F0F0F;
+    /* Even darker for deeper contrast */
+    --card-background-light: #2C2C2C;
+    /* Darker grey for cards */
+
+    /* Header & Footer */
+    --header-bg-start: #0F0F0F;
+    /* Pure black for header start */
+    --header-bg-end: #1A1A1A;
+    /* Dark charcoal for header end */
+
+    /* Shadows & Borders */
+    --border-color-light: #444444;
+    /* Darker border */
+    --shadow-light: rgba(255, 255, 255, 0.05);
+    --shadow-medium: rgba(255, 255, 255, 0.1);
+    --shadow-hover: rgba(255, 255, 255, 0.2);
+
+    /* Scrollbar */
     --scrollbar-thumb-color: var(--accent-color);
     --scrollbar-track-color: var(--background-dark);
 
-    /* New: Selection colors for dark mode */
+    /* Selection */
     --selection-bg-color: var(--accent-color);
-    --selection-text-color: black; /* Text should be black for high contrast */
+    --selection-text-color: black;
 
     /* Background Animation Colors - Dark Theme */
-    --bg-anim-color1: #0A0A0A; /* Very Dark */
-    --bg-anim-color2: #1E1E1E; /* Dark Grey */
-    --bg-anim-color3: #2A2A2A; /* Medium Dark Grey */
-    --bg-anim-color4: #333333; /* Slightly lighter dark */
+    --bg-anim-color1: #151515;
+    --bg-anim-color2: #202020;
+    --bg-anim-color3: #2A2A2A;
+    --bg-anim-color4: #353535;
+
+    /* Card Background Color for Carrousel in dark mode */
+    --card-bg-color: var(--card-background-light);
+
+    /* Couleurs des éléments de fond en mode sombre (plus clairs) */
+    --bg-element-leaf-color: rgba(170, 220, 160, 0.4);
+    /* Vert clair pour les feuilles */
+    --bg-element-water-color: rgba(120, 190, 220, 0.4);
+    /* Bleu clair pour l'eau */
+    --bg-element-flower-color: rgba(220, 150, 190, 0.4);
+    /* Rose/violet clair pour les fleurs */
+    --bg-element-sun-color: rgba(240, 220, 100, 0.4);
+    /* Jaune clair pour le soleil/lumière */
+    --bg-element-seedling-color: rgba(160, 230, 150, 0.4);
+    /* Vert clair pour les jeunes pousses */
+    --bg-element-cloud-color: rgba(180, 210, 230, 0.3);
+    /* Bleu-gris très clair pour les nuages */
+    --bg-element-mountain-color: rgba(190, 170, 160, 0.3);
+    /* Brun-gris clair pour les montagnes */
+
 
     header h1 {
         background: linear-gradient(to right, #ffffff, var(--light-accent-color));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+        /* Softer glow for dark mode */
         animation: neon-glow-dark 2s infinite alternate;
     }
 
     @keyframes neon-glow-dark {
-        0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.5); }
-        100% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.8); }
+        0% {
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        100% {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.6);
+        }
     }
 }
 
 /* Conserver l'animation originale pour le mode clair en dehors de dark-theme */
 @keyframes neon-glow {
     0% {
-        text-shadow: 0 0 5px rgba(76, 175, 80, 0.4), 0 0 10px rgba(76, 175, 80, 0.6);
+        text-shadow: 0 0 5px rgba(140, 187, 115, 0.4), 0 0 10px rgba(140, 187, 115, 0.6);
     }
+
     100% {
-        text-shadow: 0 0 15px rgba(76, 175, 80, 0.8), 0 0 25px rgba(76, 175, 80, 0.9);
+        text-shadow: 0 0 15px rgba(140, 187, 115, 0.8), 0 0 25px rgba(140, 187, 115, 0.9);
     }
 }
 
@@ -107,19 +192,18 @@ html {
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-thumb-color);
     border-radius: 10px;
-    border: 3px solid var(--scrollbar-track-color); /* Creates a padded look */
+    border: 3px solid var(--scrollbar-track-color);
+    /* Creates a padded look */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    /* The darken function here is a placeholder for SASS/LESS. 
-       In pure CSS, you'd need to manually define a slightly darker color 
-       or use JS for dynamic color manipulation. */
-    background: #388E3C; /* Example: manually darkened accent color for hover in light mode */
-    /* For dark mode, you might need a specific color too or rely on JS darken function. */
+    background: #7BBF4C;
+    /* Manually darkened accent color for hover in light mode */
 }
 
 body.dark-theme ::-webkit-scrollbar-thumb:hover {
-    background: #5CB800; /* Example: manually darkened accent color for hover in dark mode */
+    background: #7BBF4C;
+    /* Manually darkened accent color for hover in dark mode */
 }
 
 
@@ -128,7 +212,9 @@ body.dark-theme ::-webkit-scrollbar-thumb:hover {
     background: var(--selection-bg-color);
     color: var(--selection-text-color);
 }
-::-moz-selection { /* Firefox */
+
+::-moz-selection {
+    /* Firefox */
     background: var(--selection-bg-color);
     color: var(--selection-text-color);
 }
@@ -136,19 +222,27 @@ body.dark-theme ::-webkit-scrollbar-thumb:hover {
 body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, var(--bg-anim-color1), var(--bg-anim-color2), var(--bg-anim-color3), var(--bg-anim-color4));
-    background-size: 400% 400%; /* Larger background for smooth animation */
-    animation: background-animation 30s ease infinite alternate; /* Continuous subtle movement */
+    background-size: 400% 400%;
+    /* Larger background for smooth animation */
+    animation: background-animation 30s ease infinite alternate;
+    /* Continuous subtle movement */
     color: var(--primary-text-color);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
+    /* Prevent horizontal scrollbar from animations */
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 @keyframes background-animation {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 100% 100%; }
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
 }
 
 /* New: Skip link for accessibility */
@@ -175,10 +269,26 @@ header {
     padding: 20px;
     background: linear-gradient(90deg, var(--header-bg-start), var(--header-bg-end));
     color: white;
-    box-shadow: 0 4px 10px var(--shadow-medium);
+    box-shadow: 0 4px 15px var(--shadow-medium);
     position: relative;
-    z-index: 10; /* Ensure header is above other content */
-    transition: background 0.5s ease, box-shadow 0.5s ease;
+    z-index: 10;
+    /* Ensure header is above other content */
+    transition: all 0.5s ease;
+    /* Unified transition */
+    border-bottom-left-radius: 50px;
+    /* Organic curve */
+    border-bottom-right-radius: 50px;
+    /* Organic curve */
+    overflow: hidden;
+    /* Ensure content stays within border radius */
+}
+
+/* Header shrink on scroll */
+header.scrolled {
+    padding: 10px 20px;
+    /* Reduced padding */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    /* Stronger shadow */
 }
 
 .header-content {
@@ -191,27 +301,30 @@ header {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 4px solid var(--light-accent-color);
+    border: 4px solid var(--accent-color);
     margin-right: 20px;
-    object-fit: cover; /* Ensures image covers area */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.5s ease;
+    object-fit: cover;
+    /* Ensures image covers area */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, border-color 0.5s ease;
+    box-shadow: 0 5px 15px var(--shadow-medium);
 }
 
 #profile-img:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 8px 20px var(--shadow-hover);
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 10px 25px var(--shadow-hover);
 }
 
 header h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3em;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     background: linear-gradient(to right, var(--light-accent-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: neon-glow 2s infinite alternate;
-    text-shadow: 0 0 10px rgba(76, 175, 80, 0.5); /* Default glow for light mode */
+    text-shadow: 0 0 10px rgba(140, 187, 115, 0.5);
+    /* Default glow for light mode */
 }
 
 header nav ul {
@@ -228,22 +341,25 @@ header nav ul li a {
     color: white;
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 50px;
-    background: rgba(0,0,0,0.2); /* Slightly transparent for header blend */
-    backdrop-filter: blur(5px); /* New: Frosted glass effect */
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    /* Lighter frosted glass */
+    backdrop-filter: blur(5px);
+    /* New: Frosted glass effect */
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 8px var(--shadow-light);
+    box-shadow: 0 3px 8px var(--shadow-light);
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    border: 1px solid rgba(255,255,255,0.3); /* Subtle border */
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Subtle border */
 }
 
 header nav ul li a:hover {
     background: var(--accent-color);
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 6px 12px var(--shadow-medium);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 18px var(--shadow-medium);
     /* New: Subtle glow on hover */
-    text-shadow: 0 0 8px rgba(255,255,255,0.8);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
 }
 
 header nav ul li a i {
@@ -254,75 +370,92 @@ header nav ul li a i {
 /* Theme Toggle Button */
 #theme-toggle {
     background: var(--card-background-light);
-    color: var(--primary-text-color);
-    border: 2px solid var(--border-color-light);
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
     border-radius: 50%;
-    width: 45px; /* Slightly larger */
-    height: 45px; /* Slightly larger */
+    width: 45px;
+    /* Slightly larger */
+    height: 45px;
+    /* Slightly larger */
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: 1.3em; /* Larger icon */
+    font-size: 1.2em;
+    /* Larger icon */
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 25px;
+    right: 25px;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px var(--shadow-light);
-    z-index: 11; /* Ensure it's above header content */
+    box-shadow: 0 3px 8px var(--shadow-light);
+    z-index: 11;
+    /* Ensure it's above header content */
 }
 
 #theme-toggle:hover {
     background: var(--accent-color);
     color: white;
     border-color: var(--accent-color);
-    transform: scale(1.1) rotate(10deg); /* Add rotation for fun */
+    transform: scale(1.15) rotate(15deg);
+    /* Add rotation for fun */
 }
 
 /* Sections communes */
 section {
-    padding: 80px 20px;
-    margin: 0 auto;
+    padding: 100px 20px;
+    margin: 30px auto;
     max-width: 1200px;
     text-align: center;
-    position: relative; /* For potential future absolute positioning */
+    position: relative;
+    /* For potential future absolute positioning */
+    border-radius: 20px;
+    /* More rounded corners for sections */
+    background-color: var(--background-light);
+    /* Apply to sections for visual separation */
+    box-shadow: 0 10px 30px var(--shadow-light);
+    border: 1px solid var(--border-color-light);
 }
 
 section h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3em;
-    color: var(--header-bg-start); /* Use a header color for contrast */
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2em;
+    color: var(--primary-text-color);
+    /* Use a header color for contrast */
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     margin-bottom: 40px;
     position: relative;
     transition: color 0.5s ease;
-    padding-bottom: 15px; /* Space for underline */
+    padding-bottom: 20px;
+    /* Space for underline */
 }
 
 section h2::after {
     content: '';
     position: absolute;
     left: 50%;
-    bottom: 0px; /* Position underline directly below text */
+    bottom: -5px;
+    /* Position underline directly below text */
     transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
+    width: 100px;
+    height: 5px;
     background-color: var(--accent-color);
-    border-radius: 2px;
+    border-radius: 3px;
     /* New: Subtle animation on load/hover */
     transform-origin: center;
     transition: width 0.3s ease, background-color 0.5s ease;
 }
 
 section h2:hover::after {
-    width: 120px; /* Expand underline on hover */
+    width: 150px;
+    /* Expand underline on hover */
 }
 
 /* Effet de fondu pour les sections */
 .fade-in {
     opacity: 0;
-    transform: translateY(30px); /* Increased initial translation */
+    transform: translateY(30px);
+    /* Increased initial translation */
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
@@ -335,20 +468,21 @@ section h2:hover::after {
 #presentation p {
     max-width: 900px;
     margin: 0 auto;
-    font-size: 1.3em;
-    line-height: 1.8;
+    font-size: 1.2em;
+    line-height: 1.9;
     background: var(--card-background-light);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px var(--shadow-light);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-light);
     text-align: left;
     transition: all 0.4s ease-in-out, background-color 0.5s ease, color 0.5s ease;
-    border: 1px solid var(--border-color-light); /* Subtle border */
+    border: 1px solid var(--border-color-light);
+    /* Subtle border */
 }
 
 #presentation p:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 12px 30px var(--shadow-medium);
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 15px 40px var(--shadow-medium);
 }
 
 /* Style pour le bouton CV */
@@ -360,421 +494,964 @@ section h2:hover::after {
 .btn-download-cv {
     display: inline-flex;
     align-items: center;
-    padding: 15px 30px;
+    padding: 18px 35px;
     background-color: var(--accent-color);
     color: white;
     text-decoration: none;
-    border-radius: 50px;
-    font-size: 1.2em;
+    border-radius: 30px;
+    font-size: 1.3em;
     font-weight: 700;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     border: 2px solid transparent;
 }
 
 .btn-download-cv:hover {
-    background-color: #388E3C;
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    border-color: white;
+    background-color: #7BBF4C;
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--light-accent-color);
 }
 
 /* Ajustement pour le Dark Mode */
 body.dark-theme .btn-download-cv {
     background-color: var(--accent-color);
-    color: black; /* Changed to black for contrast with bright green */
-    box-shadow: 0 6px 15px rgba(255,255,255,0.1);
+    color: black;
+    /* Changed to black for contrast with bright green */
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-color);
 }
 
 body.dark-theme .btn-download-cv:hover {
-    background-color: #5CB800; /* Darken bright green */
-    border-color: var(--background-light);
-    box-shadow: 0 8px 20px rgba(255,255,255,0.2);
+    background-color: var(--light-accent-color);
+    /* Slightly darker accent for hover */
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
 }
 
 .btn-download-cv i {
-    margin-right: 10px;
+    margin-right: 12px;
+    font-size: 1.2em;
 }
 
 /* Compétences */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
-    justify-content: center;
-    margin-top: 40px;
+    max-width: 1000px;
+    margin: 0px auto;
 }
 
 .skill-item {
-    background: var(--card-background-light);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px var(--shadow-light);
-    font-size: 1.4em;
+    background-color: var(--card-background-light);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow-light);
+    font-size: 1.3em;
     font-weight: 600;
-    color: var(--header-bg-start); /* Use primary brand color */
-    text-align: center;
+    color: var(--primary-text-color);
     cursor: pointer;
-    transition: all 0.3s ease-in-out, background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
-    border: 2px solid transparent; /* Increased border size for better visual */
+    transition: all 0.3s ease-in-out, background-color 0.5s ease, color 0.5s ease;
+    border: 1px solid var(--border-color-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+    /* Ensure consistent height */
 }
 
 .skill-item:hover {
-    transform: translateY(-8px) scale(1.05); /* More pronounced lift */
-    box-shadow: 0 12px 30px var(--shadow-medium); /* Stronger shadow */
-    border-color: var(--accent-color); /* Highlight with accent color */
-    color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px var(--shadow-medium);
+    border-color: var(--accent-color);
 }
 
-/* Skill Details Popup */
+body.dark-theme .skill-item:hover {
+    color: black;
+    /* Ensure text is readable on bright accent */
+}
+
+/* Pop-up des détails de compétence */
 .skill-details {
-    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.9); /* Initial state for animation */
-    background: var(--card-background-light);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px var(--shadow-medium);
+    transform: translate(-50%, -50%) scale(0.8);
+    /* Démarrage plus petit */
+    background-color: var(--card-background-light);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-out;
     max-width: 500px;
     width: 90%;
-    text-align: left;
+    text-align: center;
     border: 2px solid var(--accent-color);
-    transition: background-color 0.5s ease, color 0.5s ease, transform 0.3s ease-out;
-    opacity: 0; /* Initial opacity for animation */
 }
 
 .skill-details.active {
-    display: block;
-    animation: fadeInScale 0.4s ease-out forwards; /* Longer animation */
-}
-
-@keyframes fadeInScale {
-    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); } /* Start smaller */
-    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .skill-details h3 {
+    font-size: 2em;
+    color: var(--accent-color);
+    margin-bottom: 20px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 2em; /* Slightly larger title */
-    color: var(--header-bg-start);
-    margin-bottom: 15px;
-    text-align: center;
-    transition: color 0.5s ease;
 }
 
 .skill-details p {
-    font-size: 1.15em; /* Slightly larger text */
+    font-size: 1.1em;
     line-height: 1.7;
     color: var(--primary-text-color);
-    margin-bottom: 25px; /* More space for button */
+    margin-bottom: 30px;
 }
 
 .skill-details .close-popup {
     background-color: var(--accent-color);
     color: white;
     border: none;
-    padding: 12px 25px; /* Slightly larger button */
-    border-radius: 8px; /* Slightly less rounded */
+    padding: 12px 25px;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 1.1em;
-    display: block;
-    margin: 0 auto;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .skill-details .close-popup:hover {
-    background-color: #388E3C; /* Manually darken for light mode */
+    background-color: #7BBF4C;
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-body.dark-theme .skill-details .close-popup:hover {
-    background-color: #5CB800; /* Manually darken for dark mode */
-}
-
-/* Overlay */
+/* Overlay pour le popup */
 #overlay {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.75); /* Darker overlay */
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 999;
-    animation: fadeIn 0.3s ease-out forwards;
-    backdrop-filter: blur(3px); /* New: Subtle blur effect */
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-out;
 }
 
 #overlay.active {
-    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
-/* Projets */
-#projets article {
-    margin-bottom: 80px;
+
+/* Projets - Carrousel */
+.project-carousel-outer {
+    position: relative;
+    max-width: 1000px;
+    margin: 0px auto 40px auto;
+    overflow: hidden;
+    /* Important for hiding extra cards */
+}
+
+.project-carousel-container {
+    overflow: hidden;
+    /* Cache les cartes en dehors du conteneur */
+    padding: 20px 0;
+    /* Ajoute un peu de padding vertical si besoin */
+}
+
+.project-carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /* Ajustez si vous avez des marges entre les cartes */
+    gap: 20px;
+    /* Espace entre les cartes */
 }
 
 .project-card {
-    background: var(--card-background-light);
-    padding: 30px;
+    flex: 0 0 auto;
+    /* Empêche le rétrécissement des cartes */
+    width: calc(33.333% - 13.333px);
+    /* 3 cartes par ligne avec 20px de gap */
+    background-color: var(--card-bg-color);
+    padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px var(--shadow-light);
-    transition: all 0.4s ease-in-out, background-color 0.5s ease, color 0.5s ease;
+    box-shadow: 0 8px 20px var(--shadow-light);
     text-align: left;
-    border: 1px solid var(--border-color-light); /* Subtle border */
+    transition: all 0.3s ease-in-out, background-color 0.5s ease;
+    border: 1px solid var(--border-color-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Pour pousser le bouton en bas */
 }
 
 .project-card:hover {
-    transform: translateY(-12px) scale(1.008); /* More pronounced lift */
-    box-shadow: 0 18px 45px var(--shadow-medium); /* Stronger shadow */
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px var(--shadow-medium);
+}
+
+.project-card img {
+    width: 100%;
+    max-height: 150px;
+    /* Use max-height instead of fixed height */
+    object-fit: contain;
+    /* Ensures the whole image is visible */
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 15px;
+    /* Optional: Add padding if you want space between image and card edges */
+    padding: 5px;
+    /* Adjust as needed */
 }
 
 .project-card h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.2em;
-    color: var(--header-bg-start);
-    margin-bottom: 25px;
-    text-align: center;
-    transition: color 0.5s ease;
-}
-
-.projet-layout {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    align-items: center;
-}
-
-.projet-layout figure {
-    flex: 1 1 450px;
-    margin: 0;
-    max-width: 100%;
-}
-
-.projet-layout img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px var(--shadow-light);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.projet-layout img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 25px var(--shadow-medium);
-}
-
-.projet-layout figcaption {
-    font-size: 0.95em;
-    color: var(--secondary-text-color);
-    margin-top: 10px;
-    text-align: center;
-    transition: color 0.5s ease;
-}
-
-.projet-description {
-    flex: 2 1 500px;
-    max-width: 100%;
-}
-
-.projet-description p {
-    font-size: 1.15em;
-    line-height: 1.7;
+    font-size: 1.8em;
     color: var(--primary-text-color);
-    background: none;
-    padding: 0;
-    box-shadow: none;
-    transition: none;
-    text-align: left;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.project-card p {
+    font-size: 1em;
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    /* Permet à la description de prendre de l'espace */
 }
 
 .btn-project-details {
-    display: inline-flex;
-    align-items: center;
-    margin-top: 20px;
+	display: flex;
+	justify-content: center;
     padding: 10px 20px;
     background-color: var(--accent-color);
     color: white;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 25px;
+    font-size: 0.9em;
     font-weight: 600;
-    transition: all 0.3s ease-in-out; /* Ensured all properties transition */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: auto;
+    /* Pousse le bouton vers le bas */
 }
 
 .btn-project-details:hover {
-    background-color: #388E3C; /* Manually darken for light mode */
-    transform: translateY(-3px) scale(1.02); /* Scale up slightly */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    background-color: #7BBF4C;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-body.dark-theme .btn-project-details:hover {
-    background-color: #5CB800; /* Manually darken for dark mode */
+body.dark-theme .btn-project-details {
+    color: black;
 }
 
-/* Contact */
-#contact form {
-    max-width: 700px;
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 50%;
+    z-index: 5;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-nav:hover {
+    background: var(--accent-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+    left: -60px;
+    /* Plus éloigné pour un meilleur accès */
+}
+
+.carousel-nav.next {
+    right: -60px;
+    /* Plus éloigné pour un meilleur accès */
+}
+
+
+/* General Veille Technologique Section Styling */
+#veille-technologique {
+    text-align: left; /* Keep text aligned left for readability */
+    padding: 40px 30px; /* More padding for better spacing */
+}
+
+#veille-technologique .section-title {
+    font-size: 2.6em; /* Slightly smaller than main h2, but still prominent */
+    color: var(--primary-text-color);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent-color); /* Stronger underline */
+    display: flex; /* Allow icon next to title */
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    text-align: left; /* Ensure title is left-aligned */
+    justify-content: flex-start; /* Align icon and text to the start */
+    width: fit-content; /* Make underline only as wide as content */
+    margin-left: 0; /* Remove auto margin if it was centered */
+    margin-right: auto;
+}
+
+#veille-technologique .section-title i {
+    color: var(--accent-color); /* Color for the icon */
+    font-size: 0.9em; /* Adjust icon size relative to text */
+}
+
+/* Introduction Paragraphs */
+#veille-technologique .intro-paragraph,
+#veille-technologique .subject-description {
+    max-width: 900px;
+    margin: 0 auto 30px auto; /* Centered with more bottom margin */
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: var(--secondary-text-color); /* Slightly lighter text for introductory paragraphs */
+    background: var(--card-background-light);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow-light);
+    border: 1px solid var(--border-color-light);
+    text-align: left;
+}
+/* Question Bubble Styles */
+.question-bubble {
+    background-color: var(--background-dark); /* Arrière-plan plus clair pour les bulles */
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    margin-bottom: 25px; /* Espacement entre les bulles */
+    border: 1px solid var(--border-color-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.question-bubble:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px var(--shadow-medium);
+}
+
+.question-bubble h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--secondary-text-color); /* Met en évidence le titre de la question */
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-color); /* Souligne la question */
+}
+
+.question-bubble p, .question-bubble ul {
+    color: var(--primary-text-color);
+}
+
+.question-bubble ul li i {
+    color: var(--accent-color); /* Couleur d'icône cohérente */
+}
+
+.risk-bubble {
+    border: 2px solid #e74c3c; /* Bordure rouge pour la section des risques */
+    background-color: #fcebeb; /* Arrière-plan rouge clair */
+    color: #c0392b;
+}
+
+body.dark-theme .risk-bubble {
+    border-color: #c0392b;
+    background-color: #4a2a2a;
+    color: #e0e0e0;
+}
+
+.risk-bubble h4 {
+    color: #c0392b; /* Texte rouge pour le titre du risque */
+    border-bottom-color: #e74c3c;
+}
+
+body.dark-theme .risk-bubble h4 {
+    color: #e74c3c;
+}
+
+.risk-bubble ul li i {
+    color: #e74c3c; /* Icône rouge pour les risques */
+}
+
+/* Modification d'une règle existante pour le thème sombre */
+body.dark-theme .content-block,
+body.dark-theme .project-card,
+body.dark-theme .skill-card,
+body.dark-theme .step-card,
+body.dark-theme .question-bubble { /* Ajout de .question-bubble ici */
+    background-color: #2c2c2c;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid #444;
+}
+/* Styles for the new Resources Section */
+#ressources .section-title i {
+    color: var(--accent-color);
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.resource-card {
+    background-color: var(--background-dark);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    border: 1px solid var(--border-color-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.resource-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--secondary-text-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.resource-card h3 i {
+    color: var(--accent-color);
+    font-size: 1.1em;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.resource-card p {
+    color: var(--primary-text-color);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allows summary to take available space */
+}
+
+.resource-link {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: auto; /* Push link to the bottom */
+}
+
+.resource-link:hover {
+    background-color: var(--light-accent-color);
+    transform: translateY(-2px);
+}
+
+.resource-link i {
+    margin-left: 8px; /* Icon on the right */
+}
+
+/* Dark theme specific styles for resource cards */
+body.dark-theme .resource-card {
+    background-color: #2c2c2c;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid #444;
+}
+
+body.dark-theme .resource-card h3 {
+    color: #e0e0e0; /* Lighter color for titles in dark mode */
+}
+
+body.dark-theme .resource-card p {
+    color: #c0c0c0; /* Lighter color for text in dark mode */
+}
+
+body.dark-theme .resource-link {
+    background-color: #4a4a4a;
+    color: #e0e0e0;
+}
+
+body.dark-theme .resource-link:hover {
+    background-color: #555;
+}
+
+/* Responsive adjustments for resources */
+@media (max-width: 1024px) {
+    .resources-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .resources-grid {
+        grid-template-columns: 1fr; /* Stack on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .resource-card {
+        padding: 20px;
+    }
+    .resource-card h3 {
+        font-size: 1.3em;
+    }
+    .resource-card p {
+        font-size: 0.9em;
+    }
+    .resource-link {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        width: 100%; /* Full width button */
+        justify-content: center;
+    }
+}
+/* Content Blocks for detailed text */
+.content-block {
+    background-color: var(--card-background-light);
+    padding: 30px; /* Ancien: 30px */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow-light);
+    margin-bottom: 40px; /* Ancien: 40px */
+    border: 1px solid var(--border-color-light);
+    text-align: left;
+    line-height: 1.7; /* Ancien: 1.7 */
+    font-size: 1.1em; /* Ancien: 1.1em */
+}
+
+/* Styles de la grille des étapes pour un affichage adaptatif en 2 colonnes */
+.steps-grid {
+    display: flex;
+    /* Utilise Flexbox pour un arrangement flexible */
+    flex-wrap: wrap;
+    /* Permet aux cartes de passer à la ligne */
+    justify-content: space-between;
+    /* Distribue les cartes sur la ligne avec de l'espace entre elles pour former 2 colonnes */
+    gap: 30px;
+    /* Ajoute un espacement de 30px entre les cartes (fonctionne bien avec Flexbox moderne) */
+    margin-top: 50px;
+    /* Maintient l'espacement supérieur */
+    align-items: stretch;
+    /* Fait en sorte que les cartes sur la même ligne s'étirent verticalement pour avoir la même hauteur */
+    /* Retire la propriété grid-template-columns car nous utilisons Flexbox */
+}
+
+/* Styles pour chaque carte individuelle (Étape 1, 2, 3, 4) */
+.step-card {
+    /* flex-basis: définit la taille initiale de la carte avant la distribution de l'espace */
+    /* flex-grow: 1; permet à la carte de s'étirer pour prendre l'espace disponible */
+    /* flex-shrink: 0; empêche la carte de rétrécir en dessous de sa flex-basis */
+    flex: 1 0 calc(50% - 15px);
+    /* Calcul pour 2 colonnes avec un écart de 30px : chaque carte prend environ 50% de la largeur moins la moitié du gap */
+    min-width: 300px;
+    /* Définit une largeur minimale pour les cartes, pour éviter qu'elles ne soient trop petites sur des écrans étroits */
+    max-width: calc(50% - 15px);
+    /* Empêche une seule carte (si elle était sur une ligne) de prendre toute la largeur, bien que cela soit moins pertinent avec 4 cartes */
+
+
+    background-color: var(--card-background-light);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid var(--border-color-light);
+    position: relative;
+    text-align: left;
+    margin-bottom: 0;
+    /* Important : Le 'gap' sur le conteneur gère l'espacement entre les rangées, donc pas de marge inférieure ici */
+
+    /* Pour que le contenu interne de la carte s'étire verticalement et s'aligne correctement */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajustements pour le mode sombre des cartes d'étape (garder ces règles intactes) */
+body.dark-theme .step-card {
+    background-color: var(--card-background-light);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+    border-color: #444;
+}
+
+body.dark-theme .step-card:hover {
+    box-shadow: 0 18px 45px rgba(255, 255, 255, 0.25);
+}
+
+.step-card:hover {
+    transform: translateY(-12px) scale(1.01);
+    box-shadow: 0 18px 45px var(--shadow-hover);
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 1.8em;
+    font-weight: 700;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid var(--background-light);
+}
+
+body.dark-theme .step-number {
+    border: 3px solid var(--background-dark);
+}
+
+.step-card h3 {
+    font-size: 1.9em;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    padding-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+}
+
+.step-card h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 60px;
+    height: 3px;
+    background-color: var(--light-accent-color);
+    border-radius: 2px;
+}
+
+.step-card p {
+    font-size: 1.05em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.step-card strong {
+    color: var(--secondary-text-color);
+    font-weight: 700;
+}
+
+.step-card h4 {
+    font-size: 1.4em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--border-color-light);
+    padding-bottom: 8px;
+}
+
+.step-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.step-card ul li {
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--primary-text-color);
+    margin-bottom: 10px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.step-card ul li i {
+    position: absolute;
+    left: 0;
+    top: 3px;
+    color: var(--accent-color);
+    font-size: 1.2em;
+}
+
+/* Sub-section styling for tools */
+.sub-section {
+    background-color: var(--background-dark);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color-light);
+}
+
+.sub-section p {
+    font-size: 0.95em;
+    margin-bottom: 10px;
+    color: var(--primary-text-color);
+}
+
+//* Responsive design: Les cartes s'empilent sur les petits écrans */
+@media (max-width: 768px) {
+    .steps-grid {
+        justify-content: center;
+        /* Centrer les cartes quand elles sont en une seule colonne sur mobile */
+    }
+
+    .step-card {
+        flex-basis: 100%;
+        /* Les cartes prennent toute la largeur disponible sur les petits écrans */
+        max-width: 100%;
+        /* S'assure qu'elles ne dépassent pas */
+        margin-bottom: 20px;
+        /* Ajoute un peu d'espace entre les cartes empilées */
+    }
+}
+
+/* Dark Theme Adjustments for Veille Technologique */
+body.dark-theme #veille-technologique .section-title {
+    color: var(--primary-text-color); /* Light text */
+    border-bottom-color: var(--accent-color);
+}
+
+body.dark-theme #veille-technologique .section-title i {
+    color: var(--accent-color);
+}
+
+body.dark-theme #veille-technologique .intro-paragraph,
+body.dark-theme #veille-technologique .subject-description,
+body.dark-theme .content-block {
+    background-color: var(--card-background-light);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08);
+    border-color: #444;
+}
+
+body.dark-theme .step-card {
+    background-color: var(--card-background-light);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+    border-color: #444;
+}
+
+body.dark-theme .step-card:hover {
+    box-shadow: 0 18px 45px rgba(255, 255, 255, 0.25);
+}
+
+body.dark-theme .step-number {
+    background-color: var(--accent-color);
+    color: black; /* Ensure contrast for dark mode number */
+    border-color: var(--background-dark);
+}
+
+body.dark-theme .step-card h3 {
+    color: var(--accent-color);
+}
+
+body.dark-theme .step-card h3::after {
+    background-color: var(--light-accent-color);
+}
+
+body.dark-theme .step-card p,
+body.dark-theme .step-card ul li {
+    color: var(--primary-text-color);
+}
+
+body.dark-theme .step-card strong {
+    color: var(--secondary-text-color);
+}
+
+body.dark-theme .step-card h4 {
+    color: var(--primary-text-color);
+    border-bottom-color: #555;
+}
+
+body.dark-theme .step-card ul li i {
+    color: var(--accent-color);
+}
+
+body.dark-theme .sub-section {
+    background-color: #383838;
+    border-color: #555;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.03);
+}
+
+body.dark-theme .back-to-projects-btn {
+    background-color: var(--accent-color);
+    color: black;
+}
+
+/* Contact Section */
+#contact {
+    padding: 80px 20px;
+}
+
+#contact-form {
+    max-width: 600px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background: var(--card-background-light);
+    text-align: left;
+    background-color: var(--card-background-light);
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 10px 30px var(--shadow-light);
-    transition: all 0.4s ease-in-out, background-color 0.5s ease, color 0.5s ease;
-    border: 1px solid var(--border-color-light); /* Subtle border */
+    border: 1px solid var(--border-color-light);
 }
 
-#contact form:hover {
-    transform: translateY(-8px) scale(1.005);
-    box-shadow: 0 15px 40px var(--shadow-medium);
-}
-
-#contact form label {
-    font-size: 1.2em;
-    color: var(--header-bg-start);
-    text-align: left;
-    margin-bottom: 5px;
+#contact-form label {
+    font-size: 1.1em;
+    color: var(--primary-text-color);
     font-weight: 600;
-    transition: color 0.5s ease;
+    margin-bottom: 5px;
 }
 
-#contact form input,
-#contact form textarea {
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
     width: 100%;
     padding: 15px;
     border: 1px solid var(--border-color-light);
     border-radius: 8px;
-    font-size: 1.1em;
+    font-size: 1em;
+    background-color: var(--background-dark);
+    /* Slightly darker background for input */
     color: var(--primary-text-color);
-    background-color: var(--background-dark); /* Slightly darker background for inputs */
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.5s ease, color 0.5s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#contact form input:focus,
-#contact form textarea:focus {
-    outline: none;
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.3); /* Stronger glow */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(140, 187, 115, 0.3);
+    /* Accent glow on focus */
 }
 
-#contact form button {
-    padding: 18px 30px;
+body.dark-theme #contact-form input,
+body.dark-theme #contact-form textarea {
+    background-color: #3A3A3A;
+    /* Darker background for input in dark mode */
+    border-color: #555555;
+    color: var(--primary-text-color);
+}
+
+body.dark-theme #contact-form input:focus,
+body.dark-theme #contact-form textarea:focus {
+    box-shadow: 0 0 0 3px rgba(163, 231, 104, 0.3);
+}
+
+#contact-form button[type="submit"] {
     background-color: var(--accent-color);
     color: white;
+    padding: 15px 30px;
     border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1.3em;
+    border-radius: 30px;
+    font-size: 1.2em;
     font-weight: 700;
+    cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    margin-top: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    align-self: center;
+    /* Centrer le bouton */
 }
 
-#contact form button:hover {
-    background: #388E3C; /* Manually darken for light mode */
+#contact-form button[type="submit"]:hover {
+    background-color: #7BBF4C;
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-body.dark-theme #contact form button:hover {
-    background-color: #5CB800; /* Manually darken for dark mode */
+body.dark-theme #contact-form button[type="submit"] {
+    color: black;
+    /* Changed to black for contrast with bright green */
 }
 
 #form-message {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: 600;
     text-align: center;
-    transition: all 0.3s ease;
+    margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--primary-text-color);
+    background-color: var(--background-dark);
 }
 
-#form-message.success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
-
-#form-message.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-.hidden {
+#form-message.hidden {
     display: none;
 }
 
-/* Pied de page */
+#form-message.success {
+    color: #3B82F6;
+    /* Blue for success */
+}
+
+#form-message.error {
+    color: #EF4444;
+    /* Red for error */
+}
+
+/* Footer */
 footer {
-    background: var(--header-bg-start);
+    background: linear-gradient(90deg, var(--header-bg-start), var(--header-bg-end));
     color: white;
     text-align: center;
-    padding: 30px 20px;
-    flex-shrink: 0;
+    padding: 25px;
     margin-top: auto;
-    border-top: 5px solid var(--accent-color);
-    transition: background-color 0.5s ease, border-color 0.5s ease;
+    /* Push footer to the bottom */
+    box-shadow: 0 -4px 15px var(--shadow-medium);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
 
 footer p {
+    margin-bottom: 15px;
     font-size: 1em;
-    margin-bottom: 10px;
 }
 
-.social-links {
-    margin-top: 15px;
-}
-
-.linkedin-link {
-    color: #0A66C2; /* LinkedIn brand color */
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 15px;
-    border-radius: 50px;
-    background-color: white;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.linkedin-link:hover {
-    background-color: #0A66C2;
+.social-links a {
     color: white;
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    font-size: 1.8em;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.linkedin-link i {
-    margin-right: 8px;
-    font-size: 1.3em;
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: scale(1.2) translateY(-3px);
 }
 
-/* Helper function for darken (Note: This is a SASS/LESS function, not native CSS. 
-   For pure CSS, you would manually define a slightly darker color, or use JS.) */
-/* @function darken($color, $percentage) {
-    @return mix(black, $color, $percentage);
-} */
+/* Responsive Design */
+@media (max-width: 1024px) {
+    header h1 {
+        font-size: 2.8em;
+    }
 
-/* Media Queries pour la responsivité */
+    header nav ul {
+        gap: 10px;
+    }
+
+    .project-card {
+        width: calc(50% - 10px);
+        /* 2 cartes par ligne */
+    }
+
+    .carousel-nav.prev {
+        left: -40px;
+    }
+
+    .carousel-nav.next {
+        right: -40px;
+    }
+}
+
 @media (max-width: 768px) {
     header {
         padding: 15px;
@@ -782,15 +1459,12 @@ footer p {
 
     .header-content {
         flex-direction: column;
-        text-align: center;
         margin-bottom: 15px;
     }
 
     #profile-img {
         margin-right: 0;
         margin-bottom: 15px;
-        width: 100px;
-        height: 100px;
     }
 
     header h1 {
@@ -803,73 +1477,89 @@ footer p {
     }
 
     header nav ul li a {
-        width: 100%;
-        justify-content: center;
-        padding: 12px;
+        padding: 8px 15px;
+        font-size: 0.9em;
     }
 
     #theme-toggle {
         top: 15px;
         right: 15px;
-        width: 35px;
-        height: 35px;
-        font-size: 1em;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1em;
     }
 
     section {
-        padding: 50px 15px;
+        padding: 60px 15px;
+        margin: 20px auto;
     }
 
     section h2 {
-        font-size: 2em;
+        font-size: 2.5em;
         margin-bottom: 30px;
     }
 
     #presentation p {
         font-size: 1.1em;
-        padding: 20px;
+        padding: 25px;
+    }
+
+    .btn-download-cv {
+        padding: 15px 25px;
+        font-size: 1.1em;
     }
 
     .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 15px;
     }
 
     .skill-item {
+        font-size: 1.1em;
+        padding: 20px;
+    }
+
+    .project-card {
+        width: 90%;
+        /* 1 carte par ligne sur les petits écrans */
+        margin: 0 auto;
+        /* Centrer la carte */
+    }
+
+    .project-carousel-wrapper {
+        justify-content: center;
+        /* Centrer les cartes dans le carrousel */
+    }
+
+    .carousel-nav {
         font-size: 1.2em;
-        padding: 15px;
+        padding: 10px;
+        top: 40%;
+        /* Ajuster la position */
     }
 
-    .projet-layout {
-        flex-direction: column;
-        gap: 30px;
+    .carousel-nav.prev {
+        left: 5px;
     }
 
-    .project-card h3 {
-        font-size: 1.8em;
+    .carousel-nav.next {
+        right: 5px;
     }
 
-    .projet-layout img {
-        max-height: 300px;
+    .skill-details {
+        padding: 25px;
     }
 
-    .projet-description p {
+    .skill-details h3 {
+        font-size: 1.6em;
+    }
+
+    .skill-details p {
         font-size: 1em;
     }
 
-    #contact form {
-        padding: 30px;
-    }
-
-    #contact form input,
-    #contact form textarea,
-    #contact form button {
-        font-size: 1em;
-        padding: 12px;
-    }
-
-    #contact form button {
-        padding: 15px;
+    #contact-form {
+        padding: 25px;
     }
 }
 
@@ -879,41 +1569,309 @@ footer p {
     }
 
     #profile-img {
-        width: 90px;
-        height: 90px;
+        width: 100px;
+        height: 100px;
     }
 
     header nav ul li a {
-        font-size: 0.9em;
-        padding: 10px;
+        font-size: 0.8em;
+        padding: 6px 12px;
     }
 
     section h2 {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 
     #presentation p {
         font-size: 1em;
+        padding: 20px;
+    }
+
+    .btn-download-cv {
+        font-size: 1em;
+        padding: 12px 20px;
     }
 
     .skills-grid {
         grid-template-columns: 1fr;
+        /* Une seule colonne */
     }
 
     .skill-item {
-        font-size: 1.1em;
-    }
-
-    .project-card h3 {
-        font-size: 1.6em;
-    }
-
-    .projet-layout img {
-        max-height: 250px;
-    }
-
-    .linkedin-link {
         font-size: 1em;
-        padding: 8px 12px;
     }
+
+	.project-card {
+		display: flex; /* Ajoutez ou modifiez */
+		justify-content: center; /* Ajoutez ou modifiez */
+		align-items: center; /* Ajoutez ou modifiez */
+		gap: 10px; /* Conservez votre valeur existante pour gap */
+		margin-top: 15px; /* Conservez votre valeur existante pour margin-top */
+		/* ... et toutes les autres propriétés que vous pourriez avoir pour cette classe */
+	}
+
+    .carousel-nav {
+        display: none;
+        /* Cache les boutons de navigation pour les très petits écrans si le défilement tactile est suffisant */
+    }
+}
+
+/* styles.css - Ajoutez ces styles ou adaptez-les */
+
+.project-detail-page {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: var(--card-background-light);
+    border-radius: 10px;
+    box-shadow: var(--shadow-medium);
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.project-detail-page h2 {
+    text-align: center;
+    color: var(--primary-text-color);
+    margin-bottom: 30px;
+    font-size: 2.2em;
+}
+
+.project-detail-page h3 {
+    color: var(--secondary-text-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+}
+
+.project-intro {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.project-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.project-intro p {
+    flex-grow: 1;
+    line-height: 1.8;
+    color: var(--primary-text-color);
+}
+
+.project-detail-page p,
+.project-detail-page ul {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: var(--primary-text-color);
+}
+
+.project-detail-page ul {
+    list-style: disc;
+    margin-left: 25px;
+}
+
+.project-detail-page ul li {
+    margin-bottom: 8px;
+}
+
+.project-detail-page a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.project-detail-page a:hover {
+    color: var(--light-accent-color);
+    text-decoration: underline;
+}
+
+.competences-list {
+    background-color: var(--background-dark);
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 40px;
+    box-shadow: var(--shadow-light);
+}
+
+.competences-list h4 {
+    color: var(--header-bg-start);
+    /* Darker blue-green */
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 8px;
+}
+
+.competences-list ul {
+    list-style: none;
+    /* Supprimer les puces par défaut */
+    padding-left: 0;
+}
+
+.competences-list ul li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+    color: var(--primary-text-color);
+}
+
+.competences-list ul li strong {
+    color: var(--secondary-text-color);
+}
+
+.competences-list ul li::before {
+    content: "\f058";
+    /* Icône de coche Font Awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.back-to-projects-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: var(--accent-color); /* Vert moyen */
+    color: var(--primary-text-color); /* Changed to use primary text color for better contrast */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    text-align: center;
+}
+
+.back-to-projects-btn:hover {
+    background-color: var(--light-accent-color);
+    transform: translateY(-2px);
+}
+
+.back-to-projects-btn i {
+    margin-right: 8px;
+}
+
+/* Styles pour le mode sombre */
+body.dark-theme .project-detail-page {
+    background-color: #2c2c2c;
+    /* Couleur sombre pour la carte */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
+}
+
+body.dark-theme .project-detail-page h2,
+body.dark-theme .project-detail-page h3,
+body.dark-theme .project-detail-page p,
+body.dark-theme .project-detail-page ul li,
+body.dark-theme .competences-list h4,
+body.dark-theme .competences-list ul li strong {
+    color: var(--primary-text-color);
+    /* Texte clair */
+}
+
+body.dark-theme .project-intro {
+    border-bottom-color: #444;
+}
+
+body.dark-theme .competences-list {
+    background-color: #383838;
+    /* Fond sombre pour la liste de compétences */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
+}
+
+body.dark-theme .competences-list h4 {
+    color: var(--light-accent-color);
+    /* Vert clair pour le titre */
+    border-bottom-color: var(--light-accent-color);
+}
+
+body.dark-theme .back-to-projects-btn {
+    background-color: var(--accent-color);
+}
+
+body.dark-theme .back-to-projects-btn:hover {
+    background-color: var(--light-accent-color);
+}
+/* Styles pour le bloc du logo amélioré */
+.logo-showcase {
+    display: flex;
+    flex-direction: column; /* Pour aligner titre et logo verticalement */
+    align-items: center; /* Centrer horizontalement */
+    justify-content: center; /* Centrer verticalement */
+    padding: 25px; /* Plus de padding pour un effet de "cadre" */
+    margin-bottom: 30px; /* Plus d'espace sous ce bloc */
+    background-color: var(--card-background-light); /* Utilise la couleur de fond des cartes */
+    border-radius: 12px; /* Bords légèrement plus arrondis */
+    box-shadow: var(--shadow-medium); /* Ombre plus prononcée */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition pour le survol */
+}
+
+.logo-showcase:hover {
+    transform: translateY(-5px); /* Léger soulèvement au survol */
+    box-shadow: var(--shadow-hover); /* Ombre plus intense au survol */
+}
+
+.logo-title {
+    font-size: 1.5em; /* Taille du titre */
+    color: var(--primary-text-color); /* Couleur du texte principale */
+    margin-bottom: 20px; /* Espacement sous le titre */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre l'icône et le texte */
+}
+
+.logo-title i {
+    color: var(--accent-color); /* Couleur de l'icône */
+    font-size: 1.2em; /* Taille de l'icône par rapport au texte */
+}
+
+.logo-container {
+    padding: 15px; /* Padding interne pour créer un effet de bordure autour du logo */
+    background-color: rgba(255, 255, 255, 0.7); /* Fond légèrement transparent pour l'encadrer */
+    border-radius: 8px; /* Coins arrondis pour le conteneur du logo */
+    border: 1px solid var(--border-color-light); /* Petite bordure discrète */
+    display: inline-block; /* Pour que le padding et la bordure s'adaptent au contenu */
+    max-width: 90%; /* Assure que le conteneur ne dépasse pas */
+    box-shadow: var(--shadow-light); /* Ombre légère pour le conteneur */
+}
+
+.stage-logo {
+    max-width: 180px; /* Taille maximale légèrement ajustée */
+    height: auto;
+    display: block; /* Supprime l'espace sous l'image */
+    margin: 0 auto; /* Centrer l'image dans son conteneur */
+    border-radius: 8px; /* Conserver les bords arrondis du logo */
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); /* Ajoute une ombre douce au logo lui-même */
+    transition: transform 0.3s ease; /* Transition pour l'effet de survol du logo */
+}
+
+.stage-logo:hover {
+    transform: scale(1.05); /* Zoom léger au survol du logo */
+}
+
+/* Ajustements pour le mode sombre si nécessaire */
+body.dark-theme .logo-showcase {
+    background-color: #3a3a3a; /* Fond plus sombre pour la carte du logo */
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
+}
+
+body.dark-theme .logo-title {
+    color: var(--primary-text-color); /* Texte clair */
+}
+
+body.dark-theme .logo-container {
+    background-color: rgba(50, 50, 50, 0.7);
+    border-color: #555;
+}
+
+body.dark-theme .stage-logo {
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); /* Ombre plus visible en mode sombre */
 }

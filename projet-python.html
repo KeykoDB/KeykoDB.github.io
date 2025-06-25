@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Python - Kévan BROUARD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="background-elements-container"></div>
+    <header>
+        <div class="header-content">
+            <img src="Images/images.png" alt="Image de profil de Kévan Brouard" id="profile-img">
+            <h1>BROUARD Kévan</h1>
+        </div>
+        <nav aria-label="Navigation principale">
+            <ul>
+                <li><a href="portfolio.html#presentation"><i class="fas fa-user"></i> Présentation</a></li>
+                <li><a href="portfolio.html#competences"><i class="fas fa-cogs"></i> Mes compétences</a></li>
+                <li><a href="portfolio.html#projets" class="active"><i class="fas fa-laptop-code"></i> Mes Projets</a></li>
+                <li><a href="veille-techno.html"><i class="fas fa-microchip"></i> Veille technologique</a></li>
+				<li><a href="mon_stage.html"><i class="fas fa-briefcase"></i> Mon Stage</a></li>
+                <li><a href="portfolio.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Basculer le thème sombre/clair">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <main id="main-content">
+        <section id="projet-python" class="fade-in project-detail-page">
+            <h2 class="section-title"><i class="fas fa-terminal"></i> Projet Python : Annuaire d'Utilisateurs</h2>
+
+            <div class="project-overview">
+                <p>Le projet Python fut notre première immersion pratique au sein du BTS SIO, une semaine dédiée à
+                    l'approfondissement de nos compétences dans ce langage de programmation polyvalent.</p>
+            </div>
+
+            <div class="content-block">
+                <h3><i class="fas fa-users-cog"></i> Déroulement du Projet</h3>
+                <p>Ce projet a été réalisé en binôme. J'ai eu l'opportunité de travailler avec Yoann BROCHARD. La
+                    collaboration a été essentielle, car le projet était structuré en 10 étapes successives, nécessitant
+                    une bonne entente et une validation de chaque tâche avant de progresser.</p>
+            </div>
+
+            <div class="content-block">
+                <h3><i class="fas fa-bullseye"></i> Objectif du Projet</h3>
+                <p>L'entreprise fictive <strong>STESIO</strong> souhaitait moderniser la gestion de ses comptes
+                    utilisateurs. L'objectif était de développer un programme en Python capable de :</p>
+                <ul>
+                    <li>Récupérer la liste des utilisateurs à partir d'un annuaire de serveurs Windows.</li>
+                    <li>Stocker cette liste dans un fichier texte.</li>
+                    <li>Générer un script SQL contenant les ordres nécessaires à la création automatique des comptes
+                        utilisateurs dans leur Système de Gestion de Bases de Données (SGBD).</li>
+                </ul>
+                <p class="download-link">
+                    Vous pouvez télécharger le projet complet ici : <a href="Projet_python_Kevan_Yoann.zip" download><i
+                            class="fas fa-file-archive"></i> Projet_python_Kevan_Yoann.zip</a>
+                </p>
+            </div>
+
+            <div class="content-block">
+                <h3><i class="fas fa-lightbulb"></i> Compétences Acquises</h3>
+                <p>Ce projet a été l'occasion de valider et d'acquérir plusieurs compétences clés, essentielles à notre
+                    formation :</p>
+                <ul>
+                    <li><strong>A1.1.1 Analyse du cahier des charges d’un service à produire :</strong> Prise en compte
+                        du cahier des charges et rédaction.</li>
+                    <li><strong>C1.1.1.2 Identifier les fonctionnalités attendues du service à produire :</strong>
+                        Compréhension et définition des besoins fonctionnels.</li>
+                    <li><strong>A1.2.4 Détermination des tests nécessaires à la validation d’un service :</strong>
+                        Préparation des jeux d’essai et des procédures pour la réalisation des tests, avec la création
+                        de jeux d'essai pour valider l'application.</li>
+                    <li><strong>A1.4.1 Participation à un projet :</strong> Établissement d'un planning personnel en
+                        fonction des exigences et du déroulement du projet, assurant le respect des délais.</li>
+                    <li><strong>A2.3.1 Identification, qualification et évaluation d’un problème :</strong> Repérage
+                        d'une suite de dysfonctionnements récurrents d’un service, notamment un problème logiciel réglé
+                        lors de l'évaluation.</li>
+                    <li><strong>A4.1.1 Proposition d’une solution applicative :</strong> Identification des composants
+                        logiciels nécessaires à la conception de la solution, avec la rédaction d’un mode opératoire.
+                    </li>
+                    <li><strong>A4.1.3 Conception ou adaptation d’une base de données :</strong> Manipulation des
+                        données liées à la solution applicative à travers un langage de requête, en utilisant la base de
+                        données mise à disposition.</li>
+                    <li><strong>A4.1.8 Réalisation des tests nécessaires à la validation d’éléments adaptés ou
+                            développés :</strong> Élaboration et réalisation de tests unitaires, chaque test nous
+                        permettant de résoudre les problèmes rencontrés.</li>
+                </ul>
+            </div>
+        </section>
+
+        <a href="portfolio.html#projets" class="back-to-projects-btn"><i class="fas fa-arrow-left"></i> Retour aux
+            Projets</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Kévan BROUARD. Tous droits réservés.</p>
+        <div class="social-links">
+            <a href="https://github.com/KeykoDB" target="_blank" rel="noopener noreferrer"
+                aria-label="Mon profil GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/kevan-brouard-a6157a371/" target="_blank" rel="noopener noreferrer"
+                aria-label="Mon profil LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script src="main.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Docker - Kévan BROUARD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="background-elements-container"></div>
+    <header>
+        <div class="header-content">
+            <img src="Images/images.png" alt="Image de profil de Kévan Brouard" id="profile-img">
+            <h1>BROUARD Kévan</h1>
+        </div>
+        <nav aria-label="Navigation principale">
+            <ul>
+                <li><a href="portfolio.html#presentation"><i class="fas fa-user"></i> Présentation</a></li>
+                <li><a href="portfolio.html#competences"><i class="fas fa-cogs"></i> Mes compétences</a></li>
+                <li><a href="portfolio.html#projets" class="active"><i class="fas fa-laptop-code"></i> Mes Projets</a></li>
+                <li><a href="veille-techno.html"><i class="fas fa-microchip"></i> Veille technologique</a></li>
+				<li><a href="mon_stage.html"><i class="fas fa-briefcase"></i> Mon Stage</a></li>
+                <li><a href="portfolio.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Basculer le thème sombre/clair">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <main id="main-content">
+        <section id="projet-docker" class="fade-in project-detail-page">
+            <h2 class="section-title"><i class="fab fa-docker"></i> Projet Docker</h2>
+
+            <div class="project-overview">
+                <p>Docker est un logiciel libre de conteneurisation. Il permet de lancer des applications dans un
+                    environnement isolé de la machine physique. Contrairement à la virtualisation qui permet de recréer
+                    une machine et ses composants dans un état dit « virtuel », Docker fonctionne sur le noyau et les
+                    composants de la machine physique. Ainsi, il est plus léger qu’une machine virtuelle et donc plus
+                    rapide mais il n’est pas possible de faire tourner un Docker Windows sur une machine hôte Linux, et
+                    inversement.</p>
+                <p>Une machine virtuelle « imite » intégralement un serveur. Dans un serveur virtualisé, chaque VM
+                    contient un système d’exploitation complet, avec ses pilotes, fichiers binaires ou bibliothèques,
+                    ainsi que l’application elle-même. Contrairement au concept de conteneurisation qui permet aux
+                    instances virtuelles de partager un système d’exploitation hôte unique, avec ses fichiers binaires,
+                    bibliothèques ou pilotes.</p>
+            </div>
+
+            <div class="content-block">
+                <h3><i class="fas fa-bullseye"></i> Objectif du Projet</h3>
+                <p>L'objectif du projet était de réaliser une application pour une entreprise cliente (Tibco). X-SIRH
+                    est la future application de gestion des ressources humaines de l’entreprise. Elle reposera sur une
+                    base de données existante implantée de préférence sur un serveur Oracle.</p>
+            </div>
+
+            <div class="content-block">
+                <h3><i class="fas fa-clipboard-list"></i> Les Étapes du Projet</h3>
+                <ol>
+                    <li><strong>Etape 0 : Contexte du Projet</strong></li>
+                    <li><strong>Etape 0 bis : Constitution des équipes et choix de l’entreprise</strong></li>
+                    <li><strong>Etape 1 : Découverte</strong></li>
+                    <li><strong>Etape 2 : Portainer</strong></li>
+                    <li><strong>Etape 3 : Conteneur Apache</strong></li>
+                    <li><strong>Etape 4 : Communication entre 2 conteneurs Apache et MySQL</strong></li>
+                    <li><strong>Etape 5 : Docker-compose</strong></li>
+                    <li><strong>Etape 6 : Création d’une image Apache personnalisée</strong></li>
+                </ol>
+                <p>Pendant ce projet, nous avons utilisé un <strong>Trello</strong> pour nous permettre mieux nous
+                    organiser et de planifier nos tâches à effectuer.</p>
+            </div>
+
+            <div class="content-block">
+                <h3><i class="fas fa-lightbulb"></i> Compétences Acquises</h3>
+                <ul>
+                    <li><strong>A1.1.1 Analyse du cahier des charges d’un service à produire :</strong> Le projet avait
+                        pour but de recréer un résultat attendu (création d’une machine Apache).</li>
+                    <li><strong>C1.1.1.2 Identifier les fonctionnalités attendues du service à produire :</strong> Le
+                        projet avait pour but de recréer un résultat attendu (création d’une machine Apache).</li>
+                    <li><strong>A1.2.1 Élaboration et présentation d’un dossier de choix de solution technique
+                            :</strong> À partir de la veille et des renseignements sur le logiciel Docker, élaboration
+                        d’un document qui recense la manière dont le serveur Apache sera créé.</li>
+                    <li><strong>C1.2.1.1 Recenser et caractériser des solutions répondant au cahier des charges
+                            (adaptation d’une solution existante ou réalisation d’une nouvelle) :</strong> À partir de
+                        la veille et des renseignements sur le logiciel Docker, élaboration d’un document qui recense la
+                        manière dont le serveur Apache sera créé.</li>
+                    <li><strong>A1.3.4 Déploiement d’un service :</strong> Mise en place du service Docker pour créer un
+                        serveur web. Le service a été mis en exploitation pour évaluation.</li>
+                    <li><strong>C1.3.4.3 Mettre en exploitation le service :</strong> Mise en place du service Docker
+                        pour créer un serveur web. Le service a été mis en exploitation pour évaluation.</li>
+                    <li><strong>A1.4.1 Participation à un projet :</strong> Élaboration de comptes-rendus pour chaque
+                        étape.</li>
+                    <li><strong>C1.4.1.2 Rendre compte de son activité :</strong> Élaboration de comptes-rendus pour
+                        chaque étape.</li>
+                    <li><strong>A1.4.2 Évaluation des indicateurs de suivi d’un projet et justification des écarts
+                            :</strong> Gestion du temps afin de rendre le projet dans les temps.</li>
+                    <li><strong>C1.4.2.2 Analyser les écarts entre temps prévu et temps consommé :</strong> Gestion du
+                        temps afin de rendre le projet dans les temps.</li>
+                    <li><strong>A5.2.2 Veille technologique :</strong> Réalisation d’une veille pour étudier au
+                        préalable ce qu’est Docker. Partage de l’information à travers un compte-rendu de projet.</li>
+                    <li><strong>C5.2.2.4 Synthétiser et diffuser les résultats d’une veille :</strong> Réalisation d’une
+                        veille pour étudier au préalable ce qu’est Docker. Partage de l’information à travers un
+                        compte-rendu de projet.</li>
+                </ul>
+            </div>
+        </section>
+
+        <a href="portfolio.html#projets" class="back-to-projects-btn"><i class="fas fa-arrow-left"></i> Retour aux
+            Projets</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Kévan BROUARD. Tous droits réservés.</p>
+        <div class="social-links">
+            <a href="https://github.com/KeykoDB" target="_blank" rel="noopener noreferrer"
+                aria-label="Mon profil GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/kevan-brouard-a6157a371/" target="_blank" rel="noopener noreferrer"
+                aria-label="Mon profil LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script src="main.js" defer></script>
+</body>
+
+</html>

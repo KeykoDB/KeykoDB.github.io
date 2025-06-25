@@ -1,318 +1,235 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Animation des sections au scroll
-    const sections = document.querySelectorAll('.fade-in');
-
-    const observerOptions = {
-        root: null, // viewport
-        rootMargin: '0px',
-        threshold: 0.1 // 10% of the section visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('appear');
-                observer.unobserve(entry.target); // Stop observing once animated
-            }
-        });
-    }, observerOptions);
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-
-    // 2. Thème sombre (Dark Mode)
+    // --- Gestion du thème (mode clair/sombre) ---
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
 
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        body.classList.add(savedTheme);
-        if (savedTheme === 'dark-theme') {
-            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+    // Charger le thème depuis localStorage ou définir le thème par défaut
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        body.classList.add(currentTheme);
+        // Mettre à jour l'icône si le thème sombre est activé au chargement
+        if (currentTheme === 'dark-theme') {
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        body.classList.add('dark-theme');
-        themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+    } else {
+        // Définir un thème par défaut (ex: clair) si aucun n'est trouvé
+        body.classList.add('light-theme'); // Ajoutez 'light-theme' si vous avez des styles spécifiques
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
 
     themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-theme');
         if (body.classList.contains('dark-theme')) {
-            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('theme', 'dark-theme');
-        } else {
-            themeToggle.querySelector('i').classList.replace('fa-sun', 'fa-moon');
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
             localStorage.setItem('theme', 'light-theme');
+        } else {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            localStorage.setItem('theme', 'dark-theme');
         }
     });
 
-    // 3. Popup des détails de compétence
+    // --- Animation de l'en-tête (rétrécissement au scroll) ---
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) { // Si l'utilisateur a scrollé plus de 50px
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // --- Effet de fondu à l'apparition des sections ---
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+        threshold: 0.1, // La section devient visible à 10% de son apparition
+        rootMargin: "0px 0px -50px 0px" // Déclenchement 50px avant d'atteindre le bas de la viewport
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('appear');
+                appearOnScroll.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+
+    // --- Logique du carrousel de projets ---
+    const carouselWrapper = document.querySelector('.project-carousel-wrapper');
+    const prevBtn = document.querySelector('.carousel-nav.prev');
+    const nextBtn = document.querySelector('.carousel-nav.next');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        // Get the width of the first card (assuming all cards have the same width)
+        const card = document.querySelector('.project-card');
+        if (!card) return; // Exit if no cards are found
+
+        // Calculate card width including its right margin/gap
+        const cardWidth = card.offsetWidth; // This gets the content + padding + border
+        const style = getComputedStyle(card);
+        const marginRight = parseFloat(style.marginRight) || 0; // Get actual margin-right
+        const gap = parseFloat(style.gap) || 20; // Default to 20px if gap not set or not applicable directly
+
+        // For flexbox gap, it's simpler: just add the gap to the card width
+        // If using margin-right, it's (cardWidth + marginRight)
+        const itemWidth = cardWidth + gap; // Assuming gap is applied as a margin-right or flex gap
+
+        // Calculate the number of items visible in the container
+        const containerWidth = document.querySelector('.project-carousel-container').offsetWidth;
+        const visibleItems = Math.floor(containerWidth / itemWidth);
+
+        // Adjust total items and current index for looping logic
+        const totalItems = carouselWrapper.children.length;
+
+        // Ensure currentIndex doesn't exceed bounds
+        if (currentIndex < 0) {
+            currentIndex = totalItems - visibleItems; // Jump to end (or near end)
+        } else if (currentIndex > totalItems - visibleItems) {
+            currentIndex = 0; // Loop back to start
+        }
+
+        // Apply transform
+        carouselWrapper.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    }
+
+
+    if (prevBtn && nextBtn && carouselWrapper) {
+        prevBtn.addEventListener('click', () => {
+            const card = document.querySelector('.project-card');
+            if (!card) return;
+            const containerWidth = document.querySelector('.project-carousel-container').offsetWidth;
+            const itemWidth = card.offsetWidth + (parseFloat(getComputedStyle(card).marginRight) || 20); // Get actual margin-right or assumed gap
+            const visibleItems = Math.floor(containerWidth / itemWidth);
+            const totalItems = carouselWrapper.children.length;
+
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                // Revenir à la fin si on est au début (boucle)
+                currentIndex = totalItems - visibleItems; // Go to the last "full" view
+                if (currentIndex < 0) currentIndex = 0; // Safety check for less items than can be displayed
+            }
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const card = document.querySelector('.project-card');
+            if (!card) return;
+            const containerWidth = document.querySelector('.project-carousel-container').offsetWidth;
+            const itemWidth = card.offsetWidth + (parseFloat(getComputedStyle(card).marginRight) || 20); // Get actual margin-right or assumed gap
+            const visibleItems = Math.floor(containerWidth / itemWidth);
+            const totalItems = carouselWrapper.children.length;
+
+            if (currentIndex < totalItems - visibleItems) {
+                currentIndex++;
+            } else {
+                // Revenir au début si on est à la fin (boucle)
+                currentIndex = 0;
+            }
+            updateCarousel();
+        });
+
+        // S'assurer que le carrousel est mis à jour si la fenêtre est redimensionnée
+        window.addEventListener('resize', updateCarousel);
+        // Initialiser le carrousel au chargement de la page
+        updateCarousel();
+    }
+
+
+    // --- Pop-ups des compétences ---
     const skillItems = document.querySelectorAll('.skill-item');
-    const skillDetailsPopup = document.getElementById('skill-details-popup');
-    const closePopupBtn = skillDetailsPopup.querySelector('.close-popup');
+    const skillDetails = document.getElementById('skill-details-popup');
+    const skillTitle = document.getElementById('skill-details-title');
+    const skillDescription = document.getElementById('skill-details-description');
+    const closePopupBtn = document.querySelector('.close-popup');
     const overlay = document.getElementById('overlay');
 
-    const skillData = {
-        "HTML": "Le HTML (HyperText Markup Language) est le langage standard pour créer des pages web. Il structure le contenu en utilisant des balises pour les titres, paragraphes, images, liens, etc. C'est la base de toute page web. Maîtrise des concepts fondamentaux et des balises sémantiques.",
-        "CSS": "Le CSS (Cascading Style Sheets) est utilisé pour styliser l'apparence du HTML. Il contrôle les couleurs, les polices, les marges, le positionnement et d'autres aspects visuels, rendant les pages web attrayantes et responsives. Compétence en flexbox, grid, et design adaptatif.",
-        "Python": "Python est un langage de programmation de haut niveau, polyvalent et facile à apprendre. Il est utilisé pour le développement web (Django, Flask), l'analyse de données, l'intelligence artificielle, l'automatisation de scripts et bien plus encore. Connaissance des bases, structures de données, et programmation orientée objet.",
-        "Windows": "Maîtrise de l'administration et de l'utilisation des systèmes d'exploitation Windows. Cela inclut la gestion des utilisateurs, des groupes, des permissions, la configuration du réseau, la résolution de problèmes et la maintenance système, ainsi que la gestion des Services de Domaine Active Directory (AD DS).",
-        "Linux": "Connaissance approfondie des commandes Linux et de l'administration système. Cela comprend la gestion des fichiers et répertoires, l'installation de logiciels, la configuration de services (Apache, Nginx, SSH), la gestion des processus, la sécurisation de base et l'écriture de scripts shell.",
-        "Reseau": "Compréhension et configuration des protocoles réseau fondamentaux comme DHCP (Dynamic Host Configuration Protocol) pour l'attribution automatique d'adresses IP, et DNS (Domain Name System) pour la résolution de noms de domaine en adresses IP. Connaissance des modèles OSI/TCP-IP, routage et sous-réseautage."
-    };
+    // Make sure all elements exist before adding listeners
+    if (skillDetails && skillTitle && skillDescription && closePopupBtn && overlay) {
+        const skillsData = {
+            "HTML": "Maîtrise complète pour créer des structures sémantiques et des designs réactifs et modernes.",
+            "CSS": "Maîtrise complète pour créer des structures sémantiques et des designs réactifs et modernes.",
+            "Python": "Solides compétences en programmation pour des applications dynamiques et interactives.",
+            "Windows (Administration et utilisation)": "Compétences approfondies en administration et utilisation des systèmes d'exploitation Windows.",
+            "Linux (Commandes et administration)": "Compétences approfondies en commandes et administration des systèmes d'exploitation Linux.",
+            "Protocoles réseau : DHCP, DNS": "Connaissance et configuration des protocoles réseau essentiels comme DHCP et DNS."
+        };
 
-    skillItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const skillName = item.dataset.skill;
-            const title = skillName;
-            const description = skillData[skillName] || "Détails non disponibles pour cette compétence.";
-
-            skillDetailsPopup.querySelector('h3').textContent = title;
-            skillDetailsPopup.querySelector('p').textContent = description;
-
-            skillDetailsPopup.classList.add('active');
-            overlay.classList.add('active');
-            // Accessibility: Set focus to the close button when popup opens
-            closePopupBtn.focus();
+        skillItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const skillName = item.textContent.trim();
+                skillTitle.textContent = skillName;
+                skillDescription.textContent = skillsData[skillName] || "Description non disponible.";
+                skillDetails.classList.add('active');
+                overlay.classList.add('active');
+                body.style.overflow = 'hidden'; // Empêcher le défilement du corps
+            });
         });
-    });
 
-    const closeSkillPopup = () => {
-        skillDetailsPopup.classList.remove('active');
-        overlay.classList.remove('active');
-    };
+        closePopupBtn.addEventListener('click', () => {
+            skillDetails.classList.remove('active');
+            overlay.classList.remove('active');
+            body.style.overflow = ''; // Restaurer le défilement du corps
+        });
 
-    closePopupBtn.addEventListener('click', closeSkillPopup);
+        overlay.addEventListener('click', () => {
+            skillDetails.classList.remove('active');
+            overlay.classList.remove('active');
+            body.style.overflow = '';
+        });
+    }
 
-    overlay.addEventListener('click', closeSkillPopup);
-
-    // Close with Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && skillDetailsPopup.classList.contains('active')) {
-            closeSkillPopup();
-        }
-    });
-
-    // 4. Gestion du formulaire de contact
+    // --- Gestion du formulaire de contact ---
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
 
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    if (contactForm && formMessage) {
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Empêche le rechargement de la page
 
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries());
+            formMessage.classList.remove('success', 'error', 'hidden');
+            formMessage.textContent = 'Envoi en cours...';
 
-        formMessage.classList.remove('hidden', 'success', 'error');
-        formMessage.textContent = "Envoi en cours...";
-        formMessage.style.backgroundColor = 'rgba(0, 123, 255, 0.1)'; // Subtle blue for pending
-        formMessage.style.color = '#0056b3';
+            // Simuler l'envoi du formulaire
+            // Dans un cas réel, tu utiliserais Fetch API pour envoyer les données à un backend
+            try {
+                await new Promise(resolve => setTimeout(resolve, 2000)); // Simule un délai réseau
 
-        try {
-            // Simulate API request (replace with actual backend endpoint)
-            const response = await new Promise((resolve, reject) => setTimeout(() => {
-                const success = Math.random() < 0.8; // 80% success rate for demo
-                if (success) {
-                    resolve({ status: 200, message: "Votre message a été envoyé avec succès !" });
+                // Ici, tu pourrais ajouter une logique pour vérifier les entrées avant de "réussir"
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                if (name && email && message) {
+                    formMessage.textContent = 'Message envoyé avec succès ! Je vous répondrai bientôt.';
+                    formMessage.classList.add('success');
+                    contactForm.reset(); // Réinitialise le formulaire après succès
                 } else {
-                    reject({ status: 500, message: "Une erreur est survenue. Veuillez réessayer plus tard." });
+                    throw new Error('Veuillez remplir tous les champs du formulaire.');
                 }
-            }, 1500));
 
-            formMessage.textContent = response.message;
-            formMessage.classList.add('success');
-            formMessage.style.backgroundColor = ''; // Reset inline style
-            formMessage.style.color = ''; // Reset inline style
-            contactForm.reset();
-
-        } catch (error) {
-            formMessage.textContent = error.message;
-            formMessage.classList.add('error');
-            formMessage.style.backgroundColor = ''; // Reset inline style
-            formMessage.style.color = ''; // Reset inline style
-        } finally {
-            setTimeout(() => {
-                formMessage.classList.add('hidden');
-            }, 5000); // Hide message after 5 seconds
-        }
-    });
-
-    // 5. Back to Top Button
-    const backToTopButton = document.createElement('button');
-    backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    backToTopButton.id = 'back-to-top';
-    backToTopButton.setAttribute('aria-label', 'Retour en haut de page');
-    document.body.appendChild(backToTopButton);
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) { // Show button after scrolling 300px
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-    });
-
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // CSS for back-to-top button
-    const style = document.createElement('style');
-    style.innerHTML = `
-        #back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.5em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.5s ease;
-            z-index: 999;
-        }
-        #back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        #back-to-top:hover {
-            background-color: #388E3C; /* Manually darken for light mode */
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-        }
-        body.dark-theme #back-to-top {
-             background-color: var(--accent-color); /* Use dark theme accent */
-             color: black; /* Changed to black for contrast */
-        }
-        body.dark-theme #back-to-top:hover {
-             background-color: #5CB800; /* Manually darken for dark mode */
-        }
-    `;
-    document.head.appendChild(style);
-
-    // 6. Smooth scrolling for navigation links
-    document.querySelectorAll('header nav ul li a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // 7. Project Details Placeholder (expandable content/modal)
-    // For now, these buttons don't do anything, but this sets up the potential
-    // for a modal or dynamic content loading for project details.
-    document.querySelectorAll('.btn-project-details').forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert("Les détails de ce projet seront bientôt disponibles dans une pop-up !");
-            // Here you would implement logic to load project details into a modal
-            // Similar to how skill details are handled, but with dynamic content.
-        });
-    });
-
-    // 8. Header shrink on scroll
-    const header = document.querySelector('header');
-    const profileImg = document.getElementById('profile-img');
-    const headerTitle = header.querySelector('h1');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) { // Shrink after 100px scroll
-            header.classList.add('shrink');
-        } else {
-            header.classList.remove('shrink');
-        }
-    });
-
-    // CSS for header shrink (add to your style.css)
-    const headerShrinkStyle = document.createElement('style');
-    headerShrinkStyle.innerHTML = `
-        header.shrink {
-            padding: 10px 20px; /* Smaller padding */
-            box-shadow: 0 2px 8px var(--shadow-medium); /* Lighter shadow */
-        }
-        header.shrink .header-content {
-            margin-bottom: 10px; /* Less space */
-        }
-        header.shrink #profile-img {
-            width: 80px; /* Smaller image */
-            height: 80px;
-            border-width: 2px; /* Thinner border */
-        }
-        header.shrink h1 {
-            font-size: 2em; /* Smaller title */
-            letter-spacing: 1px;
-            margin-left: 0; /* Adjust margin if necessary */
-        }
-        header.shrink nav ul {
-            gap: 10px;
-        }
-        header.shrink nav ul li a {
-            padding: 8px 15px; /* Smaller navigation links */
-            font-size: 0.9em;
-        }
-        header.shrink #theme-toggle {
-            width: 35px;
-            height: 35px;
-            font-size: 1.1em;
-            top: 10px;
-            right: 10px;
-        }
-
-        /* Ensure smooth transitions for header shrink */
-        header, header .header-content, header #profile-img, header h1, header nav ul li a, header #theme-toggle {
-            transition: all 0.3s ease-in-out;
-        }
-
-        /* Adjust profile image margin when shrinking to prevent overlap if it was too large */
-        @media (min-width: 769px) { /* Apply only on larger screens where it might overlap */
-            header.shrink .header-content #profile-img {
-                margin-right: 15px;
+            } catch (error) {
+                formMessage.textContent = 'Erreur lors de l\'envoi : ' + error.message;
+                formMessage.classList.add('error');
+            } finally {
+                formMessage.classList.remove('hidden');
+                // Masquer le message après quelques secondes
+                setTimeout(() => {
+                    formMessage.classList.add('hidden');
+                }, 5000);
             }
-        }
-    `;
-    document.head.appendChild(headerShrinkStyle);
-});
-
-// Helper function for CSS `darken` (since CSS doesn't have it natively)
-// This is a workaround as CSS variables don't support arithmetic ops directly.
-// For dynamic color changes, a preprocessor like SASS/LESS is ideal,
-// or calculate colors in JS, or use HSL for easier manipulation.
-// For now, I'll define it for illustration, but actual darken would need a preprocessor.
-function darken(color, percentage) {
-    // A simplified example using a fixed darken for certain colors
-    // In a real project, consider using a CSS preprocessor or a JavaScript color library.
-    if (color.includes('#')) {
-        // Hex to RGB
-        let r = parseInt(color.substring(1, 3), 16);
-        let g = parseInt(color.substring(3, 5), 16);
-        let b = parseInt(color.substring(5, 7), 16);
-
-        // Darken RGB
-        r = Math.max(0, r - Math.round(r * percentage / 100));
-        g = Math.max(0, g - Math.round(g * percentage / 100));
-        b = Math.max(0, b - Math.round(b * percentage / 100));
-
-        // RGB to Hex
-        const toHex = (c) => ('0' + c.toString(16)).slice(-2);
-        return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+        });
     }
-    // Return original color if not hex or not handled
-    return color;
-}
+});

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio de Kévan Brouard, étudiant en BTS SIO SISR passionné par l'administration réseau, les systèmes et le développement Python. Découvrez mes compétences et projets informatiques.">
+    <title>Mon Portfolio - Kévan BROUARD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="background-elements-container"></div>
+    <header>
+        <div class="header-content">
+            <img src="Images/images.png" alt="Image de profil de Kévan Brouard" id="profile-img">
+            <h1>BROUARD Kévan</h1>
+        </div>
+        <nav aria-label="Navigation principale">
+            <ul>
+                <li><a href="portfolio.html#presentation"><i class="fas fa-user"></i> Présentation</a></li>
+                <li><a href="portfolio.html#competences"><i class="fas fa-cogs"></i> Mes compétences</a></li>
+                <li><a href="portfolio.html#projets"><i class="fas fa-laptop-code"></i> Mes Projets</a></li>
+                <li><a href="veille-techno.html" class="active"><i class="fas fa-microchip"></i> Veille technologique</a></li>
+				<li><a href="mon_stage.html"><i class="fas fa-briefcase"></i> Mon Stage</a></li>
+                <li><a href="portfolio.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Basculer le thème sombre/clair">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <main id="main-content">
+        <section id="presentation" class="fade-in">
+            <h2>Présentation</h2>
+            <p>
+                Je suis actuellement étudiant en BTS Services Informatiques aux Organisations (SIO), spécialité SISR
+                (Solutions d’Infrastructure, Systèmes et Réseaux).
+                Passionné par les nouvelles technologies et le développement de compétences en administration réseau,
+                j’ai déjà acquis des bases solides dans
+                des domaines tels que la gestion de systèmes, les protocoles réseau (DHCP, DNS) et l’administration
+                Linux et Windows.
+                Mon objectif est de continuer à développer mes compétences techniques pour évoluer dans des
+                environnements IT dynamiques,
+                tout en explorant les opportunités de programmation pour créer des solutions innovantes. Mon projet
+                professionnel est de devenir administrateur réseau ou développeur backend.
+            </p>
+            <div class="cv-download-container">
+                <a href="images\CV_Kevan_BROUARD.pdf" download="CV_Kevan_Brouard.pdf" class="btn-download-cv">
+                    <i class="fas fa-download"></i> Télécharger mon CV
+                </a>
+            </div>
+        </section>
+
+        <section id="competences" class="fade-in">
+            <h2>Mes compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-item">HTML</div>
+                <div class="skill-item">CSS</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">Windows (Administration et utilisation)</div>
+                <div class="skill-item">Linux (Commandes et administration)</div>
+                <div class="skill-item">Protocoles réseau : DHCP, DNS</div>
+            </div>
+        </section>
+
+        <section id="projets" class="fade-in">
+            <h2>Mes Projets</h2>
+            <div class="project-carousel-outer">
+                <button class="carousel-nav prev" aria-label="Projet précédent"><i
+                        class="fas fa-chevron-left"></i></button>
+                <div class="project-carousel-container">
+                    <div class="project-carousel-wrapper">
+                        <div class="project-card fade-in" data-category="web">
+                            <img src="Images/logo_python.png" alt="Logo Python" class="project-image">
+                            <h3>Projet Python : Annuaire de Serveurs</h3>
+                            <p>Développement d'un programme Python pour automatiser la gestion des utilisateurs via un
+                                annuaire de serveurs Windows.</p>
+                            <div class="project-actions">
+                                <a href="projet-python.html" class="btn-project-details" aria-label="Voir les détails du Projet X">Voir
+                                    les détails</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+    <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: 0 auto 15px auto;">
+        <rect x="15" y="25" width="70" height="50" rx="8" stroke="#4CAF50" stroke-width="5"/>
+        <line x1="25" y1="35" x2="75" y2="35" stroke="#4CAF50" stroke-width="3" stroke-linecap="round"/>
+        <line x1="25" y1="45" x2="75" y2="45" stroke="#4CAF50" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="30" cy="60" r="8" fill="#4CAF50"/>
+        <circle cx="50" cy="60" r="8" fill="#4CAF50"/>
+        <circle cx="70" cy="60" r="8" fill="#4CAF50"/>
+    </svg>
+    <h3>Projet GSB : Application Web et Infrastructure</h3>
+    <p>Création d'une application web de centralisation des comptes-rendus de visite et gestion des frais, avec mise en place de l'infrastructure virtuelle complète.</p>
+    <a href="projet-gsb.html" class="btn-project-details">Voir les détails <i class="fas fa-arrow-right"></i></a>
+</div>
+                        <div class="project-card fade-in" data-category="devops">
+                            <img src="Images/docker-logo.png" alt="Logo Docker" class="project-image">
+                            <h3>Projet Docker</h3>
+                            <p>Découverte et mise en place de la conteneurisation avec Docker pour une application de gestion des ressources humaines.</p>
+                            <a href="projet-docker.html" class="btn-project-details" aria-label="Voir les détails du Projet Docker">Voir les
+                                détails</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-nav next" aria-label="Projet suivant"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <div id="skill-details-popup" class="skill-details">
+            <h3 id="skill-details-title"></h3>
+            <p id="skill-details-description"></p>
+            <button class="close-popup">Fermer</button>
+        </div>
+        <div id="overlay"></div>
+
+        <section id="contact" class="fade-in">
+            <h2>Contact</h2>
+            <form id="contact-form">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+
+                <button type="submit">Envoyer le message</button>
+                <p id="form-message" class="hidden"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Kévan BROUARD. Tous droits réservés.</p>
+        <div class="social-links">
+            <a href="https://github.com/KeykoDB" target="_blank" rel="noopener noreferrer"
+                aria-label="Mon profil GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/kevan-brouard-a6157a371/" target="_blank" rel="noopener noreferrer"
+                aria-label="Mon profil LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script src="main.js" defer></script>
+</body>
+
+</html>
